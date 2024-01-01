@@ -1,7 +1,7 @@
 /* Slide Form */
 
 .slide-form h2 {
-	margin: 10px 0;
+	margin: 0 auto;
 }
 
 .slide-form {
@@ -12,11 +12,11 @@
 	background-color: rgba(0, 0, 0, 0.6);
 	border-radius: 10px;
 	color: #fff;
-	padding: 20px;
+	padding: 30px;
 }
 
 .slide-form input {
-	margin: 10px 0;
+	margin: 0 auto;
 	color: black;
 	height: 2.5rem;
 }

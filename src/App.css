@@ -15,7 +15,7 @@ a {
 }
 
 .container {
-	max-width: 80%;
+	max-width: 90%;
 	margin: 0 auto;
 	flex: 1;
 }
@@ -98,6 +98,20 @@ h2 {
 	font-size: 2rem;
 	font-weight: bold;
 	padding-bottom: 2rem;
+}
+
+@media only screen and (max-width: 678px) {
+	input,
+	textarea {
+		width: 100%;
+		padding: 0.5rem;
+		border: 1px solid #dce3e3;
+		border-radius: 0.5rem;
+		font-size: 1rem;
+		color: gray;
+		margin-block: 0.5rem;
+		outline: none;
+	}
 }
 
 /*  

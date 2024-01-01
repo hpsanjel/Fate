@@ -38,7 +38,7 @@ const Navbar = () => {
 				</div>
 			</div>
 			<header id="stickyheader">
-				<div className="container flex items-center">
+				<div className="container flex items-center justify-between">
 					<div className="logo">
 						<Link to="/">
 							<img src="/images/Fate-Logo.png" alt="Fate Logo" />

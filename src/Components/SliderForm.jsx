@@ -36,7 +36,7 @@ const SliderForm = () => {
 	return (
 		<div className="container">
 			<div className="slideformcenter">
-				<section className="slide-form p-2 w-3/4 md:w-1/3 lg:w-1/4">
+				<section className="slide-form p-1 w-full -mx-2 md:w-1/2">
 					<h2 className="text-xl text-center tracking-wider">Explore Universities of Japan</h2>
 					<form className="w-full text-center">
 						{/* <label for="txt_search" className="text-center">
