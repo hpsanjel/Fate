@@ -1,0 +1,78 @@
+/* Contact Form */
+
+.contact-form h2 {
+	margin-top: 30px;
+}
+
+/* .contact-form {
+	position: absolute;
+	top: 45%;
+	left: 30%;
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 40%;
+	height: 34vh;
+	border-radius: 10px;
+	color: #fff;
+} */
+
+.contact-form-container {
+	background-color: rgb(249, 245, 241);
+}
+.contact-form input {
+	margin-top: 20px;
+}
+
+/* .contact-form .flex-space input:nth-child(odd) {
+	margin-right: 10px;
+} */
+
+.contact-form .submit {
+	background-color: #2e8689;
+	font-size: 1.2rem;
+	color: #fff;
+}
+
+/* Style for social media links */
+.social-media-links {
+	display: flex;
+	align-items: left;
+}
+
+.social-media-links a {
+	text-decoration: none;
+	line-height: 1.5rem;
+}
+
+/* Example styling for Font Awesome icons */
+/* Assuming you're using Font Awesome for icons */
+/* Include Font Awesome CSS in your project for this to work */
+/* You may need to adjust the icon sizes and styles */
+.fa-facebook-f:before {
+	content: "\f09a";
+}
+
+.fa-youtube:before {
+	content: "\f167";
+}
+
+.fa-linkedin:before {
+	content: "\f08c";
+}
+
+.fa-instagram:before {
+	content: "\f16d";
+}
+
+.btn_contact {
+	background-color: #2d8687;
+	border: 1px solid #2d8687;
+}
+
+.btn_contact:hover {
+	border: 1px solid #2d8687;
+	background-color: #257677;
+	transition: all 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+}

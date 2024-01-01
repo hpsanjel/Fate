@@ -1,0 +1,52 @@
+/* Testimonials.css */
+.testimonials-container {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.image {
+	background-image: url("/public/images/quote.png");
+	background-size: cover;
+	background-position: center;
+	background-color: aqua;
+}
+
+.testimonial {
+	margin-top: 40px;
+	background-color: #fcfbf8;
+	position: relative;
+	border: 1px solid #ddd;
+	padding: 20px;
+	border-radius: 8px;
+	text-align: center;
+}
+
+.testimonial-photo {
+	position: absolute;
+	border: 3px solid #555;
+	top: -15%;
+	left: 50%;
+	transform: translate(-50%);
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	margin: 0 auto;
+	display: block;
+}
+
+.testimonial-text {
+	margin-top: 40px;
+	margin-bottom: 15px;
+	color: #333;
+}
+
+.testimonial-name {
+	color: #262323;
+}
+
+.testimonial-position {
+	color: #201f1f;
+	font-size: 14px;
+}
