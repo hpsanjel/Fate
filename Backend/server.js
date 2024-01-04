@@ -5,22 +5,42 @@ const cors = require("cors");
 const MessagesModel = require("./models/Messages");
 const SubscriberModel = require("./models/Subscribers");
 const TestimonialsModel = require("./models/Testimonials");
-const BlogModel = require("./models/Blogs");
-const bodyParser = require("body-parser");
+const BlogsModel = require("./models/Blogs");
+// const bodyParser = require("body-parser");
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
-app.use(
-	cors({
-		origin: "http://localhost:5174",
-		methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-		optionsSuccessStatus: 204,
-	})
-);
+app.use(cors());
+
+// const OpenAI = require("openai");
+// const openai = new OpenAI({ OPEN_AI_KEY });
+
+// app.post('/generate-essay', async (req, res) => {
+//   const { topic } = req.body;
+
+//   try {
+//     const response = await openai.complete({
+//       engine: 'text-davinci-003', // Select the appropriate GPT-3 engine
+//       prompt: `Write an essay about ${topic}.`, // Adjust the prompt as needed
+//       max_tokens: 500, // Adjust the length of the generated essay
+//     });
+
+//     const essayContent = response.data.choices[0].text.trim();
+//     res.json({ essay: essayContent });
+//   } catch (error) {
+//     console.error('Error generating essay:', error);
+//     res.status(500).json({ error: 'Failed to generate essay' });
+//   }
+// });
+
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
 
 app.get("/getMessages", async (req, res) => {
 	const docs = await MessagesModel.find({});
@@ -30,6 +50,20 @@ app.get("/getMessages", async (req, res) => {
 app.get("/getTestimonials", async (req, res) => {
 	const testi = await TestimonialsModel.find({});
 	res.json(testi);
+});
+
+app.get("/getBlogs", async (req, res) => {
+	const blogs = await BlogsModel.find({});
+	res.json(blogs);
+});
+
+app.get("/getSubscribers", async (req, res) => {
+	try {
+		const subscribers = await SubscriberModel.find({});
+		res.json(subscribers);
+	} catch (e) {
+		console.log(Error, e);
+	}
 });
 
 app.post("/createMessage", async (req, res) => {
@@ -50,6 +84,14 @@ app.post("/addSubscriber", async (req, res) => {
 	const docSubs = await newSubscriber.save();
 	console.log(docSubs);
 	res.json(docSubs);
+});
+
+app.post("/generate-essay", async (req, res) => {
+	const newPrompt = new PromptModel();
+	newPrompt.prompt = req.body.prompt;
+
+	const docPrompt = await newPrompt.save();
+	res.json(docPrompt);
 });
 
 app.post("/addBlog", async (req, res) => {

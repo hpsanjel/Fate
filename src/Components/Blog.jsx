@@ -8,10 +8,8 @@ const Blog = () => {
 	const [searchBlogsKey, setSearchBlogsKey] = useState("");
 	const [searchBlogsResults, setSearchBlogsResults] = useState([]);
 	const [noResultsFound, setNoResultsFound] = useState(false);
-	const [likes, setLikes] = useState(0);
 
 	const [blog, setBlog] = useState({});
-	const [blogs, setBlogs] = useState([]);
 
 	const howManyPosts = BlogPosts.slice(0, 6);
 	const pageTitle = "Blog";
@@ -76,7 +74,7 @@ const Blog = () => {
 
 			<div className="container grid grid-cols-1 md:grid-cols-3">
 				<div className="grid col-span-2">
-					<div className="grid grid-cols-1 gap-8 lg:grid-cols-1 2xl:grid-cols-2 mt-4 mb-4 pt-4 pb-4">
+					<div className="grid grid-cols-1 gap-8 h-fit lg:grid-cols-1 2xl:grid-cols-2 mt-4 mb-4 pt-4 pb-4">
 						{noResultsFound ? (
 							<h3 className="text-xl text-red-700" style={{ display: noResultsFound ? "block" : "none" }}>
 								No results found for the term "{searchBlogsKey}".

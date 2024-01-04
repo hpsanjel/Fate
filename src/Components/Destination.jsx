@@ -22,7 +22,7 @@ const Destination = () => {
 
 			<div className="container text-left gap-6 mt-4 mb-4 py-4 grid grid-cols-1 text-md md:grid-cols-2 lg:grid-cols-3 md:text-left md:gap-12">
 				{regions_japan.map((region, id) => (
-					<div key={id} className="destination p-6 mb-12 bg-white rounded shadow-md flex flex-col gap-y-4 md:flex-row space-x-4">
+					<div key={id} className="p-6 mb-12 bg-white rounded shadow-md flex flex-col gap-y-4 h-fit md:flex-row space-x-4">
 						<div>
 							<img className="rounded-lg w-100% h-120" src={region.region_img} alt={region.region} />
 

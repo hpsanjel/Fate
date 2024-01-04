@@ -35,18 +35,39 @@ const Contact = () => {
 
 	const handleSubscriber = async (e) => {
 		e.preventDefault();
-		const email = { email: subEmail }; // Construct an object with 'email' key
+		const email = { email: subEmail };
 		try {
 			const response = await fetch("http://localhost:8083/addSubscriber", {
 				method: "POST",
 				body: JSON.stringify(email),
 				headers: { "Content-Type": "application/json" },
-			});
-			const data = await response.json();
-			toast.success(`Hi, ${data.email}, Welcome to our family!`, {
-				position: toast.POSITION.TOP_RIGHT,
-				autoClose: 2000,
-			});
+			})
+				.then((response) => {
+					if (!response.ok) {
+						throw new Error("Network response was not ok");
+					}
+					return response.json();
+				})
+				.then((data) => {
+					if (data && data.email) {
+						toast.success(`Hi, ${data.email}, Welcome to our family!`, {
+							position: toast.POSITION.TOP_RIGHT,
+							autoClose: 2000,
+						});
+					} else {
+						// Handle cases where data or data.email is missing
+						console.error("Data or email is missing");
+					}
+				})
+				.catch((error) => {
+					// Handle fetch errors
+					console.error("Fetch error:", error);
+					// Display a toast message for error handling if needed
+					toast.error("Error fetching data", {
+						position: toast.POSITION.TOP_RIGHT,
+						autoClose: 2000,
+					});
+				});
 		} catch (error) {
 			console.error("Error:", error);
 		}
@@ -80,7 +101,7 @@ const Contact = () => {
 					})}
 				</div> */}
 				<div className="container grid grid-cols-1 md:grid-cols-2 gap-8">
-					<div className="bg-white m-2 p-4 pb-2 rounded shadow md:m-2 md:p-16">
+					<div className="bg-white m-2 p-4 pb-2 rounded shadow md:m-12 md:p-16">
 						<form onSubmit={handleSubmit}>
 							<div className="mb-4">
 								<label className="block text-sm font-semibold" htmlFor="name">
@@ -116,7 +137,7 @@ const Contact = () => {
 					</div>
 
 					{/* Contact Information */}
-					<div className="bg-white m-4 p-12 md:p-16 rounded shadow">
+					<div className="bg-white m-2 p-4 pb-2 rounded shadow md:m-12 md:p-16">
 						{/* Address */}
 						<div className="mb-6">
 							<h3 className="text-sm font-semibold">Address</h3>

@@ -25,7 +25,8 @@ function App() {
 		<>
 			<Router>
 				<Navbar />
-				<ToastContainer />
+
+				{/* <ToastContainer /> */}
 				<Routes>
 					<Route exact path="/" element={<Hero />}></Route>
 					<Route path="/about" element={<About />}></Route>

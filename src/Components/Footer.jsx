@@ -15,16 +15,16 @@ const Footer = () => {
 						<p className="text-xs text-white md:w-1/2 lg:w-1/3">Fate International Japanese School Private Limited (FIJS) is the only institute which provides quality Japanese Language Teaching Facilities.</p>
 						<div className="social-links flex gap-4 mt-2 text-white">
 							<a href="http://www.facebook.com/hpsanjel">
-								<i className="bi bi-facebook"></i>
+								<i className="bi bi-facebook hover:text-amber-200"></i>
 							</a>
 							<a href="http://www.facebook.com/hpsanjel">
-								<i className="bi bi-youtube"></i>
+								<i className="bi bi-youtube  hover:text-amber-200"></i>
 							</a>
 							<a href="http://www.facebook.com/hpsanjel">
-								<i className="bi bi-instagram"></i>
+								<i className="bi bi-instagram  hover:text-amber-200"></i>
 							</a>
 							<a href="http://www.facebook.com/hpsanjel">
-								<i className="bi bi-linkedin"></i>
+								<i className="bi bi-linkedin  hover:text-amber-200"></i>
 							</a>
 						</div>
 					</div>
@@ -33,17 +33,17 @@ const Footer = () => {
 
 					<div className="flex mt-2">
 						<ul className="flex space-x-4 text-white text-xs">
-							<li>
+							<li className=" hover:text-amber-200">
 								<Link to="/">Home</Link>
 							</li>
-							<li>
+							<li className=" hover:text-amber-200">
 								<Link to="/about">About Us</Link>
 							</li>
 
-							<li>
+							<li className=" hover:text-amber-200">
 								<Link to="/services">Services</Link>
 							</li>
-							<li>
+							<li className=" hover:text-amber-200">
 								<Link to="/contact">Contact Us</Link>
 							</li>
 						</ul>
