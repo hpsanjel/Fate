@@ -2,11 +2,12 @@ import React from "react";
 import Banner from "./Banner";
 import SectionHeader from "./SectionHeader";
 import Vision from "./Vision";
+import { FeatureCard } from "./FeatureCard";
 
 const About = () => {
 	const pageTitle = "About Us";
 	const breadcrumbs = ["Home", "About Us"];
-	const bgimage = 'url("/images/classroom.png")';
+	const bgimage = 'url("/images/headerbanner.png")';
 
 	return (
 		<>
@@ -15,38 +16,20 @@ const About = () => {
 			<div className="container">
 				<SectionHeader first_heading="Heading" />
 				<div className="grid grid-cols-1 gap-6 p-4 mb-24 text-center md:grid-cols-3 md:gap-6 lg:grid-cols-4">
-					<div className="border-2 p-4 rounded-md  flex flex-col items-center">
-						<img src="/images/location.png" alt="image1" width={75}></img>
-						<p className="mt-3">Centered Location</p>
-					</div>
-					<div className="border-2 p-4 rounded-md  flex flex-col items-center">
-						<img src="/images/support.png" alt="image1" width={75}></img>
-						<p className="mt-3">24/7 Support</p>
-					</div>
-					<div className="border-2 p-4 rounded-md  flex flex-col items-center">
-						<img src="/images/free.png" alt="image1" width={75}></img>
-						<p className="mt-3">Free Services</p>
-					</div>
-					<div className="border-2 p-4 rounded-md  flex flex-col items-center">
-						<img src="/images/classroom.png" alt="image1" width={75}></img>
-						<p className="mt-3">Well-equipped Classroom</p>
-					</div>
-					<div className="border-2 p-4 rounded-md  flex flex-col items-center">
-						<img src="/images/documentation.png" alt="image1" width={75}></img>
-						<p className="mt-3">Proper Documentation</p>
-					</div>
-					<div className="border-2 p-4 rounded-md  flex flex-col items-center">
-						<img src="/images/parking.png" alt="image1" width={75}></img>
-						<p className="mt-3">Free Parking</p>
-					</div>
-					<div className="border-2 p-4 rounded-md  flex flex-col items-center">
-						<img src="/images/location.png" alt="image1" width={75}></img>
-						<p className="mt-3">Centered Location</p>
-					</div>
-					<div className="border-2 p-4 rounded-md  flex flex-col items-center">
-						<img src="/images/support.png" alt="image1" width={75}></img>
-						<p className="mt-3">24/7 Support</p>
-					</div>
+					<FeatureCard image="/images/location.png" altimage="location icon" imgwidth="75px" feature="Centered Location" />
+
+					<FeatureCard image="/images/support.png" altText="image1" imgwidth={75} feature="24/7 Support" />
+					<FeatureCard image="/images/classroom.png" altText="image1" imgwidth={75} feature="Well-equipped Classroom" />
+
+					<FeatureCard image="/images/documentation.png" altText="image1" imgwidth={75} feature="Proper Documentation" />
+
+					<FeatureCard image="/images/free.png" altText="image1" imgwidth={75} feature="Free Services" />
+
+					<FeatureCard image="/images/classroom.png" altText="image1" imgwidth={75} feature="Well-equipped Classroom" />
+
+					<FeatureCard image="/images/documentation.png" altText="image1" imgwidth={75} feature="Proper Documentation" />
+
+					<FeatureCard image="/images/parking.png" altText="image1" imgwidth={75} feature="Free Parking" />
 				</div>
 
 				<div className="-mx-4 flex flex-wrap">

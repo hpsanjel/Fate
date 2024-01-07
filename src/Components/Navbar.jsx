@@ -1,11 +1,13 @@
-import { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const navRef = useRef();
 
 	const showNavBar = () => {
 		navRef.current.classList.toggle("responsive_nav");
+		setIsMenuOpen(!isMenuOpen);
 	};
 
 	useEffect(() => {
@@ -32,7 +34,7 @@ const Navbar = () => {
 	return (
 		<>
 			<div className="bg-teal-900 py-2 sticky top-0">
-				<div className="flex container">
+				<div className="flex container z-10">
 					<i className="bi bi-phone text-white"></i>&nbsp;<p className=" text-gray-300">9851000735</p> &nbsp;&nbsp;&nbsp;&nbsp;
 					<i className="bi bi-envelope text-white"></i>&nbsp;<p className="text-gray-300">info@fate.edu.np</p>
 				</div>
@@ -45,34 +47,35 @@ const Navbar = () => {
 						</Link>
 					</div>
 					<nav ref={navRef}>
-						<Link to="/" onClick={showNavBar}>
+						<NavLink to="/" onClick={showNavBar}>
 							Home
-						</Link>
-						<Link to="/about" onClick={showNavBar}>
+						</NavLink>
+						<NavLink to="/about" onClick={showNavBar}>
 							About
-						</Link>
-						<Link to="/destination" onClick={showNavBar}>
+						</NavLink>
+						<NavLink to="/destination" onClick={showNavBar}>
 							Destination
-						</Link>
-						<Link to="/blog" onClick={showNavBar}>
+						</NavLink>
+						<NavLink to="/blog" onClick={showNavBar}>
 							Blog
-						</Link>
-						<Link to="/gallery" onClick={showNavBar}>
+						</NavLink>
+						<NavLink to="/gallery" onClick={showNavBar}>
 							Gallery
-						</Link>
-						<Link to="/testimonial" onClick={showNavBar}>
+						</NavLink>
+						<NavLink to="/testimonial" onClick={showNavBar}>
 							Testimonials
-						</Link>
-						<Link to="/contact" onClick={showNavBar}>
+						</NavLink>
+						<NavLink to="/contact" onClick={showNavBar}>
 							Contact
-						</Link>
+						</NavLink>
 
-						<button className="nav_btn nav_close_btn text-md" onClick={showNavBar}>
+						{/* <button className="nav_btn nav_close_btn text-md" onClick={showNavBar}>
 							<i className="bi bi-x-square-fill"></i>
-						</button>
+						</button> */}
 					</nav>
+
 					<button className="nav_btn pt-2 text-md" onClick={showNavBar}>
-						<i className="bi bi-list"></i>
+						{isMenuOpen ? <i className="bi bi-x"></i> : <i className="bi bi-list"></i>}
 					</button>
 				</div>
 			</header>

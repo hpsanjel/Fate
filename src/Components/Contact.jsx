@@ -5,11 +5,12 @@ import { useState, useEffect } from "react";
 import SectionHeader from "./SectionHeader";
 // import axios from "axios";
 import { toast } from "react-toastify";
+import StyledButton from "./Button";
 
 const Contact = () => {
 	const pageTitle = "Contact";
 	const breadcrumbs = ["Home", "Contact"];
-	const bgimage = 'url("/images/map.png")';
+	const bgimage = 'url("/images/headerbanner.png")';
 
 	const [formMessage, setFormMessage] = useState({});
 	const [subEmail, setSubEmail] = useState({});
@@ -129,9 +130,9 @@ const Contact = () => {
 							</div>
 							{/* Add more form fields here */}
 							<div className="mb-6">
-								<button className="inline-block rounded-md border border-transparent bg-teal-900 px-3 py-3 text-center font-medium text-white hover:bg-teal-950" type="submit">
+								<StyledButton type="submit" className="hover:bg-teal-900">
 									Send Message
-								</button>
+								</StyledButton>
 							</div>
 						</form>
 					</div>
@@ -186,12 +187,12 @@ const Contact = () => {
 								type="email"
 								id="email"
 								placeholder="Enter your email"
-								className="text-black mx-3"
+								className="text-black px-3"
 							/>
 
-							<button className="inline-block rounded-md border border-transparent bg-teal-900 px-3 py-3 text-center font-medium text-white hover:bg-teal-950" type="submit">
+							<StyledButton type="submit" className="hover:bg-teal-900">
 								Subscribe
-							</button>
+							</StyledButton>
 						</form>
 					</div>
 				</div>

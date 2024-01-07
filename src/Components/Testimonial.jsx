@@ -65,12 +65,12 @@ const Testimonial = () => {
 
 	const pageTitle = "Testimonials";
 	const breadcrumbs = ["Home", "Testimonials"];
-	const bgimage = 'url("/images/classroom.png")';
+	const bgimage = 'url("/images/headerbanner.png")';
 
 	return (
 		<>
 			<Banner pageTitle={pageTitle} breadcrumbs={breadcrumbs} bgimage={bgimage} />
-			<SectionHeader first_heading={pageTitle} />
+			<SectionHeader firstline="testimonials" firstheading={pageTitle} shortdesc="Nothing to write for now hehe" />
 
 			{/* <div className="container w-1/4 bg-slate-100 m-4 p-4">
 				<form onSubmit={handleSubmitTestimony} action="POST">

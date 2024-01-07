@@ -6,7 +6,7 @@ import SectionHeader from "./SectionHeader";
 const Gallery = () => {
 	const pageTitle = "Gallery";
 	const breadcrumbs = ["Home", "Gallery"];
-	const bgimage = 'url("/images/classroom.png")';
+	const bgimage = 'url("/images/headerbanner.png")';
 
 	return (
 		<>
@@ -15,8 +15,8 @@ const Gallery = () => {
 
 			<div className="container mb-12 gap-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
 				{galleryData.map((item, index) => (
-					<div key={index}>
-						<img src={item.link} alt={item.text} />
+					<div key={index} className="mb-8">
+						<img src={item.largelink} alt={item.text} />
 						{/* <p className="p-2 text-xs text-center">{item.desc}</p> */}
 					</div>
 				))}

@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import { useState } from "react";
 import SectionHeader from "./SectionHeader";
 import regions_japan from "./DestinationData";
+import StyledButton from "./Button";
 
 const Destination = () => {
 	const [isVisible, setIsVisible] = useState(false);
@@ -13,7 +14,7 @@ const Destination = () => {
 
 	const pageTitle = "Destination";
 	const breadcrumbs = ["Home", "Destination"];
-	const bgimage = 'url("/images/classroom.png")';
+	const bgimage = 'url("/images/headerbanner.png")';
 
 	return (
 		<>
@@ -29,7 +30,7 @@ const Destination = () => {
 							<h3 className="text-lg my-4">{region.region}</h3>
 							<h4 className="leading-6 mb-4">{region.region_desc}</h4>
 
-							<label className="block rounded-md border border-transparent bg-teal-900 px-8 py-3 text-center font-medium text-white hover:bg-teal-950">{`Study in ${region.region}`}</label>
+							<StyledButton className="w-full rounded-md">{`Study in ${region.region}`}</StyledButton>
 						</div>
 					</div>
 				))}

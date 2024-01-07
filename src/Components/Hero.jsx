@@ -10,10 +10,10 @@ const Hero = () => {
 	return (
 		<>
 			{/* <Slide Slides={SlideData} /> */}
-			<SliderForm />
-			<HeroVideo />
-			<WhyJapan />
+			{/* <SliderForm /> */}
+			{/* <HeroVideo /> */}
 			<CallToAction />
+			<WhyJapan />
 			{/* <ApplyToday /> */}
 		</>
 	);

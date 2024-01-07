@@ -2,19 +2,22 @@ import React, { useState, useEffect } from "react";
 import Banner from "./Banner";
 import BlogPost from "./BlogPost";
 import BlogPosts from "./BlogData";
+import StyledButton from "./Button";
 
 const Blog = () => {
 	// const [sortedPosts, setSortedPosts] = useState([]);
 	const [searchBlogsKey, setSearchBlogsKey] = useState("");
 	const [searchBlogsResults, setSearchBlogsResults] = useState([]);
 	const [noResultsFound, setNoResultsFound] = useState(false);
+	const [likes, setLikes] = useState(0);
 
 	const [blog, setBlog] = useState({});
+	const [blogs, setBlogs] = useState([]);
 
 	const howManyPosts = BlogPosts.slice(0, 6);
 	const pageTitle = "Blog";
 	const breadcrumbs = ["Home", "Blog"];
-	const bgimage = 'url("/images/classroom.png")';
+	const bgimage = 'url("/images/headerbanner.png")';
 
 	// useEffect(() => {
 	// 	const sortedByDate = [...howManyPosts].sort((a, b) => new Date(b.blogDate) - new Date(a.blogDate));
@@ -29,6 +32,13 @@ const Blog = () => {
 
 	const handleInputChange = (event) => {
 		setSearchBlogsKey(event.target.value);
+	};
+
+	const highlightKeyword = (text, keyword) => {
+		if (!keyword.trim()) return text; // Return original text if the keyword is empty
+
+		const regex = new RegExp(`(${keyword})`, "gi"); // Create a case-insensitive regex pattern for the keyword
+		return text.replace(regex, "<mark>$1</mark>"); // Wrap the keyword matches in <mark> tags for highlighting
 	};
 
 	const handleBlog = (e) => {
@@ -73,16 +83,14 @@ const Blog = () => {
 			</div> */}
 
 			<div className="container grid grid-cols-1 md:grid-cols-3">
-				<div className="grid col-span-2">
-					<div className="grid grid-cols-1 gap-8 h-fit lg:grid-cols-1 2xl:grid-cols-2 mt-4 mb-4 pt-4 pb-4">
-						{noResultsFound ? (
-							<h3 className="text-xl text-red-700" style={{ display: noResultsFound ? "block" : "none" }}>
-								No results found for the term "{searchBlogsKey}".
-							</h3>
-						) : (
+				<div className="grid col-span-2 h-fit">
+					<div className="grid grid-cols-1 gap-8 lg:grid-cols-1 2xl:grid-cols-2 mt-7 mb-4 pt-4 pb-4">
+						{searchBlogsKey && <span className="text-lg text-green-700 -mt-10">{searchBlogsResults.length > 0 ? `${searchBlogsResults.length} relevant ${searchBlogsResults.length === 1 ? "blog" : "blogs"} found` : <h3 className="text-lg text-red-700">{noResultsFound ? `No results found for the term "${searchBlogsKey}".` : "Loading..."}</h3>}</span>}
+
+						{!noResultsFound &&
 							searchBlogsResults.map((blog, index) => (
-								<div key={index} className="md:my-6 bg-slate-100 p-6">
-									<h1 className="blog-title text-teal-900 text-xl mb-4">{blog.blogTitle}</h1>
+								<div key={index} className="md:my-0 bg-slate-100 p-6">
+									<h1 className="blog-title text-teal-900 text-xl mb-4" dangerouslySetInnerHTML={{ __html: highlightKeyword(blog.blogTitle, searchBlogsKey) }}></h1>
 									<p className="mb-4">
 										<i className="bi bi-pencil-square"></i> {blog.blogAuthor} &nbsp;&nbsp; <i className="bi bi-calendar3"></i>
 										&nbsp;{blog.blogDate}
@@ -93,17 +101,10 @@ const Blog = () => {
 											alt={blog.imageAlt}
 											className="blog-image h-full w-full object-cover"
 										/>
-										<p className="mt-3">{blog.blogContent}</p>
+										<p className="mt-3" dangerouslySetInnerHTML={{ __html: highlightKeyword(blog.blogContent, searchBlogsKey) }}></p>
 										{/* <p className="mt-3">{searchBlogsKey !== "" && highlightKeyword(blog.blogContent, searchBlogsKey)}</p> */}
 										<div className="flex justify-between">
-											<button
-												className="bg-teal-900 px-1 mt-3 py-2 w-32 text-center cursor-pointer text-white"
-												onClick={(e) => {
-													console.log("Clicked");
-												}}
-											>
-												Read More
-											</button>
+											<button className="bg-teal-900 px-1 mt-3 py-2 w-32 text-center cursor-pointer text-white">Read More</button>
 											<div className="flex">
 												<i className="bi bi-hand-thumbs-up mr-2 bg-zinc-300 text-teal-900 hover:bg-teal-900 px-1 py-2 w-10 text-center hover:text-white mt-3 transition-all duration-200 delay-75 ease-in-out"></i>
 												<i className="bi bi-share bg-teal-900 px-1 py-2 w-10 text-center text-white mt-3"></i>
@@ -111,8 +112,7 @@ const Blog = () => {
 										</div>
 									</div>
 								</div>
-							))
-						)}
+							))}
 					</div>
 				</div>
 

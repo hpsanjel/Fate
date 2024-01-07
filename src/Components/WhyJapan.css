@@ -2,33 +2,20 @@
 
 .why-fate {
 	justify-content: space-between;
-	align-items: center;
-	gap: 40px;
-	padding: 30px;
+	gap: 20px;
+	padding: 20px;
 }
 
 .card {
 	max-width: 400px;
-	text-align: center;
-	transition: transform 0.3s ease-in-out;
-	background-color: #f9ebeb;
+	/* transition: transform 0.3s ease-in-out; */
 	margin-top: 10px;
 }
 
-.card:hover {
-	transform: translateY(-5px);
-}
-
 .card img {
-	width: 100%;
-	height: 200px;
-	object-fit: cover;
+	width: 50%;
+	object-fit: contain;
 	margin-bottom: 15px;
-}
-
-.card h3 {
-	font-size: 1rem;
-	margin-bottom: 10px;
 }
 
 .card p {

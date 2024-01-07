@@ -6,41 +6,15 @@ const MessagesModel = require("./models/Messages");
 const SubscriberModel = require("./models/Subscribers");
 const TestimonialsModel = require("./models/Testimonials");
 const BlogsModel = require("./models/Blogs");
-// const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 app.use(cors());
-
-// const OpenAI = require("openai");
-// const openai = new OpenAI({ OPEN_AI_KEY });
-
-// app.post('/generate-essay', async (req, res) => {
-//   const { topic } = req.body;
-
-//   try {
-//     const response = await openai.complete({
-//       engine: 'text-davinci-003', // Select the appropriate GPT-3 engine
-//       prompt: `Write an essay about ${topic}.`, // Adjust the prompt as needed
-//       max_tokens: 500, // Adjust the length of the generated essay
-//     });
-
-//     const essayContent = response.data.choices[0].text.trim();
-//     res.json({ essay: essayContent });
-//   } catch (error) {
-//     console.error('Error generating essay:', error);
-//     res.status(500).json({ error: 'Failed to generate essay' });
-//   }
-// });
-
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-//   console.log(`Server running on port ${PORT}`);
-// });
 
 app.get("/getMessages", async (req, res) => {
 	const docs = await MessagesModel.find({});
