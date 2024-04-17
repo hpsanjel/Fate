@@ -6,12 +6,6 @@ import regions_japan from "./DestinationData";
 import StyledButton from "./Button";
 
 const Destination = () => {
-	const [isVisible, setIsVisible] = useState(false);
-
-	const toggleVisibility = () => {
-		setIsVisible(!isVisible);
-	};
-
 	const pageTitle = "Destination";
 	const breadcrumbs = ["Home", "Destination"];
 	const bgimage = 'url("/images/headerbanner.png")';
@@ -19,7 +13,7 @@ const Destination = () => {
 	return (
 		<>
 			<Banner pageTitle={pageTitle} breadcrumbs={breadcrumbs} bgimage={bgimage} />
-			<SectionHeader first_heading="Destination" />
+			<SectionHeader firstline="Gallery" firstheading={pageTitle} shortdesc="Nothing to write for now hehe" />
 
 			<div className="container text-left gap-6 mt-4 mb-4 py-4 grid grid-cols-1 text-md md:grid-cols-2 lg:grid-cols-3 md:text-left md:gap-12">
 				{regions_japan.map((region, id) => (

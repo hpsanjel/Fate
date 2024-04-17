@@ -3,13 +3,13 @@ import React from "react";
 const SectionHeader = ({ firstline, firstheading, shortdesc }) => {
 	return (
 		<div>
-			<div className="mt-24 flex flex-wrap">
-				<div className="w-full px-4">
-					<div className="mx-auto mb-[40px] max-w-[510px] text-center lg:mb-10">
-						<span className="mb-2 block text-lg font-semibold text-teal">{firstline}</span>
+			<div className="mt-16 flex flex-wrap">
+				<div className="w-full px-2">
+					<div className="mx-auto mb-[48px] max-w-[510px] text-center lg:mb-12">
+						<span className="mb-2 block text-lg text-teal">{firstline}</span>
 
-						<h2 className="mb-2 text-3xl font-bold sm:text-4xl md:text-[40px]">{firstheading} </h2>
-						<p className="text-base text-body-color dark:text-dark-6">{shortdesc}</p>
+						<h2 className=" text-3xl font-bold md:text-5xl">{firstheading} </h2>
+						<p>{shortdesc}</p>
 					</div>
 				</div>
 			</div>

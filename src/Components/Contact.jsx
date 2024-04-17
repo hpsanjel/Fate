@@ -1,6 +1,5 @@
 import React from "react";
 import Banner from "./Banner";
-import Map from "./Map";
 import { useState, useEffect } from "react";
 import SectionHeader from "./SectionHeader";
 // import axios from "axios";
@@ -10,7 +9,7 @@ import StyledButton from "./Button";
 const Contact = () => {
 	const pageTitle = "Contact";
 	const breadcrumbs = ["Home", "Contact"];
-	const bgimage = 'url("/images/headerbanner.png")';
+	const bgimage = 'url("/images/heroimage.jpeg")';
 
 	const [formMessage, setFormMessage] = useState({});
 	const [subEmail, setSubEmail] = useState({});
@@ -27,11 +26,14 @@ const Contact = () => {
 			body: JSON.stringify(formMessage),
 			headers: { "Content-Type": "application/json" },
 		});
+
+		if (!response.ok) {
+			console.error(`Error: ${response.statusText}`);
+			// Handle the error here, show an error toast, or other actions.
+			return;
+		}
+
 		const resp = await response.json();
-		toast.success(`Hi, ${resp.name}, We just received your message!`, {
-			position: toast.POSITION.TOP_RIGHT,
-			autoClose: 2000,
-		});
 	};
 
 	const handleSubscriber = async (e) => {
@@ -93,16 +95,16 @@ const Contact = () => {
 	return (
 		<>
 			<Banner pageTitle={pageTitle} breadcrumbs={breadcrumbs} bgimage={bgimage} />
-			<SectionHeader first_heading="Contact" />
+			<SectionHeader firstline="We want to hear from you" firstheading={pageTitle} shortdesc="Keep in touch Keep in touch Keep in touch Keep in touch Keep in touch Keep in touch Keep in touch " />
 
-			<div className="contact-form-container p-4">
+			<div className="contact-form-container">
 				{/* <div>
 					{messages.map((msg, index) => {
 						return <h1 key={index}>{msg.name}</h1>;
 					})}
 				</div> */}
-				<div className="container grid grid-cols-1 md:grid-cols-2 gap-8">
-					<div className="bg-white m-2 p-4 pb-2 rounded shadow md:m-12 md:p-16">
+				<div className="container grid grid-cols-1 md:grid-cols-2 gap-4">
+					<div className="bg-white mt-6 p-6 pb-2 rounded shadow md:m-4 md:p-2 lg:m-8 lg:p-12">
 						<form onSubmit={handleSubmit}>
 							<div className="mb-4">
 								<label className="block text-sm font-semibold" htmlFor="name">
@@ -138,28 +140,28 @@ const Contact = () => {
 					</div>
 
 					{/* Contact Information */}
-					<div className="bg-white m-2 p-4 pb-2 rounded shadow md:m-12 md:p-16">
+					<div className="bg-white m-6 p-6 pb-2 rounded shadow md:m-4 md:p-2 lg:m-8 lg:p-12">
 						{/* Address */}
 						<div className="mb-6">
-							<h3 className="text-sm font-semibold">Address</h3>
+							<h3 className="text-md font-extrabold">Address</h3>
 							<p>Putalisadak, Kathmandu</p>
 							<p>Bagmati, Nepal</p>
 						</div>
 
 						{/* Telephone */}
 						<div className="mb-6">
-							<h3 className="text-sm font-semibold">Telephone</h3>
+							<h3 className="text-md font-extrabold">Telephone</h3>
 							<p>+977-1-4266704</p>
 						</div>
 
 						<div className="mb-6">
-							<h3 className="text-sm font-semibold">Email</h3>
+							<h3 className="text-md font-extrabold">Email</h3>
 							<p>info@fate.edu.np</p>
 						</div>
 
 						{/* Find us on */}
 						<div className="mb-6">
-							<h3 className="text-sm font-semibold">Find us on</h3>
+							<h3 className="text-md font-extrabold">Find us on</h3>
 							{/* Social media links */}
 							<div className="flex flex-col social-media-links">
 								<a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
@@ -176,28 +178,28 @@ const Contact = () => {
 								</a>
 							</div>
 						</div>
-						<form onSubmit={handleSubscriber} className="flex flex-col w-full items-center mt-12 gap-3 p-4 border-2 rounded-md bg-slate-100">
-							<label htmlFor="email" className="text-md text-black">
-								Stay in Touch
-							</label>
-							<input
-								onChange={(e) => {
-									setSubEmail(e.target.value);
-								}}
-								type="email"
-								id="email"
-								placeholder="Enter your email"
-								className="text-black px-3"
-							/>
+						<form onSubmit={handleSubscriber}>
+							<div className="flex flex-col w-full items-center mt-12 mb-6 gap-3 p-4 border-2 rounded-md bg-slate-100">
+								<label htmlFor="subscriptionemail" className="text-md text-black">
+									Get regular updates to your email{" "}
+								</label>
+								<input
+									onChange={(e) => {
+										setSubEmail(e.target.value);
+									}}
+									type="email"
+									id="subscriptionemail"
+									placeholder="Enter your email"
+									className="p-3 rounded-sm"
+								/>
 
-							<StyledButton type="submit" className="hover:bg-teal-900">
-								Subscribe
-							</StyledButton>
+								<StyledButton type="submit">Subscribe</StyledButton>
+								<h3 className="text-sm">We do not send any junk emails!</h3>
+							</div>
 						</form>
 					</div>
 				</div>
 			</div>
-			<Map />
 		</>
 	);
 };

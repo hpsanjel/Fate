@@ -11,7 +11,7 @@ const Gallery = () => {
 	return (
 		<>
 			<Banner pageTitle={pageTitle} breadcrumbs={breadcrumbs} bgimage={bgimage} />
-			<SectionHeader first_heading="Gallery" />
+			<SectionHeader firstline="testimonials" firstheading={pageTitle} shortdesc="Nothing to write for now hehe" />
 
 			<div className="container mb-12 gap-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
 				{galleryData.map((item, index) => (

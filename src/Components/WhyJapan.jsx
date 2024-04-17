@@ -31,7 +31,7 @@ const WhyJapan = () => {
 
 				<div className="container why-fate grid grid-cols-1 place-items-center text-center md:grid-cols-2 lg:grid-cols-3">
 					{cards.map((card, index) => (
-						<div className="card border border-transparent transition duration-300 hover:border hover:border-teal-300 p-8" key={index}>
+						<div className="card border border-transparent transition duration-300 hover:border hover:border-teal-400 hover:-translate-y-0.5 hover:shadow-md p-8" key={index}>
 							<img className="mx-auto" src={card.imageUrl} alt={card.title} />
 							<h3 className="text-lg font-bold">{card.title}</h3>
 							<p>{card.description}</p>

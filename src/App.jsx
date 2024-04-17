@@ -19,6 +19,7 @@ import "./Components/Testimonial.css";
 import "./Components/WhyJapan.css";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
+import BlogPostPage from "./Components/BlogPostPage";
 
 function App() {
 	return (
@@ -26,11 +27,12 @@ function App() {
 			<Router>
 				<Navbar />
 
-				{/* <ToastContainer /> */}
 				<Routes>
 					<Route exact path="/" element={<Hero />}></Route>
 					<Route path="/about" element={<About />}></Route>
-					<Route path="/blog" element={<Blog />}></Route>
+					<Route path="/blog" exact element={<Blog />}></Route>
+					<Route path="/blog/:blogTitle" element={<BlogPostPage />}></Route>
+					<Route path="/blog/:year/:month" element={<BlogPostPage />}></Route>
 					<Route path="/gallery" element={<Gallery />}></Route>
 					<Route path="/testimonial" element={<Testimonial />}></Route>
 					<Route path="/destination" element={<Destination />}></Route>

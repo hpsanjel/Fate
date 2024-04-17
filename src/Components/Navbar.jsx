@@ -34,7 +34,7 @@ const Navbar = () => {
 	return (
 		<>
 			<div className="bg-teal-900 py-2 sticky top-0">
-				<div className="flex container z-10">
+				<div className="flex container sm:space-between">
 					<i className="bi bi-phone text-white"></i>&nbsp;<p className=" text-gray-300">9851000735</p> &nbsp;&nbsp;&nbsp;&nbsp;
 					<i className="bi bi-envelope text-white"></i>&nbsp;<p className="text-gray-300">info@fate.edu.np</p>
 				</div>

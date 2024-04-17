@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 const Footer = () => {
 	return (
 		<>
-			<footer className="footer-content p-8 flex flex-col bg-teal-900">
+			{/* <img className="h-1/4 object-cover" src="https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/banner_mapsHD.png" alt="kart"></img> */}
+
+			<footer className="footer-content p-8 flex md:flex-col bg-teal-900">
 				<div className="container grid grid-cols-1 justify-items-center md:grid-cols-2 md:text-left md:justify-items-end">
 					{/* <!-- Footer-left --> */}
 					<div className="flex flex-col pb-4 space-y-3 text-center items-center justify-center md:flex md:text-left md:items-start md:justify-start">
@@ -12,7 +14,7 @@ const Footer = () => {
 							<img src="/images/Fate-Logo.png" width="150px" alt="Fate Logo" />
 						</a>
 
-						<p className="text-xs text-white md:w-1/2 lg:w-1/3">Fate International Japanese School Private Limited (FIJS) is the only institute which provides quality Japanese Language Teaching Facilities.</p>
+						<p className="text-xs text-white md:w-full lg:w-1/2">Fate International Japanese School Private Limited (FIJS) is the only institute which provides quality Japanese Language Teaching Facilities.</p>
 						<div className="social-links flex gap-4 mt-2 text-white">
 							<a href="http://www.facebook.com/hpsanjel">
 								<i className="bi bi-facebook hover:text-amber-200"></i>
