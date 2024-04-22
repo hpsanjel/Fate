@@ -85,7 +85,7 @@ const Blog = () => {
 			<SectionHeader firstline="Learn more" firstheading={pageTitle} shortdesc="Everything you may like to explore more about Japan" />
 
 			<div className="container flex justify-center relative">
-				<input type="text" className="border-1 border-slate-300 bg-white rounded-md mt-8 p-4" placeholder="search blogs..." onChange={handleInputChange}></input>
+				<input type="text" className="focus:outline-none border-1 border-slate-300 focus:border-1 focus:border-slate-500 bg-white rounded-md mt-8 p-4" placeholder="search blogs..." onChange={handleInputChange}></input>
 			</div>
 			{/* 
 			<div className="container w-full md:w-1/4 bg-slate-100 m-4 p-4">

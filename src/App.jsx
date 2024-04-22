@@ -6,6 +6,7 @@ import Hero from "./Components/Hero";
 import About from "./Components/About";
 import Gallery from "./Components/Gallery";
 import Contact from "./Components/Contact";
+import UniversityPage from "./Components/UniversityPage";
 import Blog from "./Components/Blog";
 import Testimonial from "./Components/Testimonial";
 import Destination from "./Components/Destination";
@@ -32,10 +33,11 @@ function App() {
 					<Route path="/about" element={<About />}></Route>
 					<Route path="/blog" exact element={<Blog />}></Route>
 					<Route path="/blog/:blogTitle" element={<BlogPostPage />}></Route>
-					<Route path="/blog/:year/:month" element={<BlogPostPage />}></Route>
+					<Route path="/blog/:month" element={<BlogPostPage />}></Route>
 					<Route path="/gallery" element={<Gallery />}></Route>
 					<Route path="/testimonial" element={<Testimonial />}></Route>
 					<Route path="/destination" element={<Destination />}></Route>
+					<Route path="/UniversityPage/:region" element={<UniversityPage />}></Route>
 					<Route path="/contact" element={<Contact />}></Route>
 					<Route path="*" element={<Error />}></Route>
 				</Routes>

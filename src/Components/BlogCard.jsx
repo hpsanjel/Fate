@@ -1,8 +1,8 @@
 const BlogCard = ({ image, alt, date, CardTitle, CardDescription, author, category }) => {
 	return (
 		<>
-			<div className="w-full px-1">
-				<div className="mb-16 w-full relative bg-slate-100 p-4">
+			<div className="w-full">
+				<div className="mb-16 w-full relative">
 					<img src={image} alt={alt} className="blog-image h-full w-full object-cover" />
 					<h1 className="blog-title text-teal-900 text-xl mt-6 mb-2">{CardTitle}</h1>
 					<p className="mt-2 mb-4">

@@ -12,7 +12,7 @@ const Contact = () => {
 	const bgimage = 'url("/images/heroimage.jpeg")';
 
 	const [formMessage, setFormMessage] = useState({});
-	const [subEmail, setSubEmail] = useState({});
+	const [subEmail, setSubEmail] = useState("");
 	// const [messages, setMessages] = useState([]);
 
 	const handleContactForm = (e) => {
@@ -21,59 +21,84 @@ const Contact = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const response = await fetch("http://localhost:8083/createMessage", {
-			method: "POST",
-			body: JSON.stringify(formMessage),
-			headers: { "Content-Type": "application/json" },
-		});
+		// const response = await fetch("http://localhost:8083/createMessage", {
+		// 	method: "POST",
+		// 	body: JSON.stringify(formMessage),
+		// 	headers: { "Content-Type": "application/json" },
+		// });
+		if (Object.keys(formMessage).length == 0) {
+			alert("Please fill up the form message first");
+		} else {
+			localStorage.setItem("ContactMessage", JSON.stringify(formMessage));
+			const savedMessage = localStorage.getItem("ContactMessage");
+			console.log(JSON.parse(savedMessage));
+			const contactMessage = JSON.parse(savedMessage);
+			const contactName = contactMessage.name;
 
-		if (!response.ok) {
-			console.error(`Error: ${response.statusText}`);
-			// Handle the error here, show an error toast, or other actions.
-			return;
+			alert(`Hi, ${contactName}! Your message has been successfully sent!`);
+			toast.success(`Hi, ${contactName}! Your message has been successfully sent!`, {
+				position: toast.POSITION.BOTTOM_RIGHT,
+				autoClose: 2000,
+			});
 		}
 
-		const resp = await response.json();
+		// if (!response.ok) {
+		// 	console.error(`Error: ${response.statusText}`);
+		// 	// Handle the error here, show an error toast, or other actions.
+		// 	return;
+		// }
+
+		// const resp = await response.json();
+		// console.log(resp);
 	};
 
 	const handleSubscriber = async (e) => {
 		e.preventDefault();
-		const email = { email: subEmail };
-		try {
-			const response = await fetch("http://localhost:8083/addSubscriber", {
-				method: "POST",
-				body: JSON.stringify(email),
-				headers: { "Content-Type": "application/json" },
-			})
-				.then((response) => {
-					if (!response.ok) {
-						throw new Error("Network response was not ok");
-					}
-					return response.json();
-				})
-				.then((data) => {
-					if (data && data.email) {
-						toast.success(`Hi, ${data.email}, Welcome to our family!`, {
-							position: toast.POSITION.TOP_RIGHT,
-							autoClose: 2000,
-						});
-					} else {
-						// Handle cases where data or data.email is missing
-						console.error("Data or email is missing");
-					}
-				})
-				.catch((error) => {
-					// Handle fetch errors
-					console.error("Fetch error:", error);
-					// Display a toast message for error handling if needed
-					toast.error("Error fetching data", {
-						position: toast.POSITION.TOP_RIGHT,
-						autoClose: 2000,
-					});
-				});
-		} catch (error) {
-			console.error("Error:", error);
+		// const email = { email: subEmail };
+		if (subEmail !== "") {
+			const email = subEmail;
+			localStorage.setItem("email", email);
+			const subsEmail = localStorage.getItem("email");
+			alert(`Hi, ${subEmail}! Welcome to our family.`);
+		} else {
+			alert("Please enter your email address first!");
 		}
+
+		// try {
+		// 	const response = await fetch("http://localhost:8083/addSubscriber", {
+		// 		method: "POST",
+		// 		body: JSON.stringify(email),
+		// 		headers: { "Content-Type": "application/json" },
+		// 	})
+		// 		.then((response) => {
+		// 			if (!response.ok) {
+		// 				throw new Error("Network response was not ok");
+		// 			}
+		// 			return response.json();
+		// 		})
+		// 		.then((data) => {
+		// 			if (data && data.email) {
+		// 				toast.success(`Hi, ${data.email}, Welcome to our family!`, {
+		// 					position: toast.POSITION.BOTTOM_RIGHT,
+		// 					autoClose: 2000,
+		// 				});
+		// 			} else {
+		// 				// Handle cases where data or data.email is missing
+		// 				console.error("Data or email is missing");
+		// 			}
+		// 		})
+		// 		.catch((error) => {
+		// 			// Handle fetch errors
+		// 			console.error("Fetch error:", error);
+		// 			// Display a toast message for error handling if needed
+		// 			toast.error("Error fetching data", {
+		// 				position: toast.POSITION.BOTTOM_RIGHT,
+		// 				autoClose: 2000,
+		// 			});
+		// 		});
+		// } catch (error) {
+		// 	console.error("Error:", error);
+		// }
 	};
 
 	// const getMessages = async () => {

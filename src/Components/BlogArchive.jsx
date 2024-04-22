@@ -1,6 +1,7 @@
 import React from "react";
 import BlogPosts from "./BlogData";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { slugify } from "./Slugify";
 
 const blogPosts = BlogPosts;
 function BlogArchive({ blogPosts }) {
@@ -25,10 +26,11 @@ function BlogArchive({ blogPosts }) {
 		return archive;
 	}
 	const archive = groupPostsByMonth(BlogPosts);
+	const navigate = useNavigate();
 
 	return (
 		<div>
-			<h2>Archive</h2>
+			<h2 className="text-xl">Archive</h2>
 			<ul>
 				{Object.keys(archive).map((year) => (
 					<li key={year}>
@@ -36,9 +38,17 @@ function BlogArchive({ blogPosts }) {
 						<ul>
 							{Object.keys(archive[year]).map((month) => (
 								<li key={month}>
-									<Link to={`/articles/<span class="math-inline">\{year\}/</span>{month}`}>
+									<button
+										className="px-2 py-1 mb-4 text-center cursor-pointer"
+										onClick={() => {
+											navigate(`/blog/${month}`);
+										}}
+									>
 										{month} ({archive[year][month].length})
-									</Link>
+									</button>
+									{/* <Link to={`/articles/<span className="math-inline">\{year\}/</span>{month}`}>
+										{month} ({archive[year][month].length})
+									</Link> */}
 								</li>
 							))}
 						</ul>

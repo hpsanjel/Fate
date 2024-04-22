@@ -48,7 +48,7 @@ const BlogPosts = [
 		blogID: 6,
 		blogTitle: "Why UK",
 		blogAuthor: "Hari Sanjel",
-		blogDate: "September 19, 2022", // Replace with image URL
+		blogDate: "January 19, 2022", // Replace with image URL
 		imageSource: "https://lh5.googleusercontent.com/p/AF1QipM98E0lBOaYthIn92V7tcew5b7Wou-qPRfNUzKf=w1080-h624-n-k-no",
 		imageAlt: "Why Japan Image",
 		blogContent: "Studying in Japan offers a blend of rich culture, cutting-edge technology, and academic excellence. With top-tier universities, diverse programs in technology, arts, and science, along with a unique cultural experience, students benefit from a forward-thinking environment, extensive resources, and a global perspective.",

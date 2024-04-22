@@ -4,11 +4,14 @@ import { useState } from "react";
 import SectionHeader from "./SectionHeader";
 import regions_japan from "./DestinationData";
 import StyledButton from "./Button";
+import { useNavigate } from "react-router-dom";
 
 const Destination = () => {
 	const pageTitle = "Destination";
 	const breadcrumbs = ["Home", "Destination"];
 	const bgimage = 'url("/images/headerbanner.png")';
+
+	const uniNavigate = useNavigate();
 
 	return (
 		<>
@@ -24,7 +27,12 @@ const Destination = () => {
 							<h3 className="text-lg my-4">{region.region}</h3>
 							<h4 className="leading-6 mb-4">{region.region_desc}</h4>
 
-							<StyledButton className="w-full rounded-md">{`Study in ${region.region}`}</StyledButton>
+							<StyledButton
+								onClick={() => {
+									uniNavigate(`/UniversityPage/${region.region}`);
+								}}
+								className="w-full rounded-md"
+							>{`Study in ${region.region}`}</StyledButton>
 						</div>
 					</div>
 				))}

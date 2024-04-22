@@ -25,11 +25,11 @@ const WhyJapan = () => {
 
 	return (
 		<>
-			<div className=" bg-lime-50 py-10">
+			<div className=" bg-white py-10">
 				<h1 className="text-3xl text-center p-2 text-black">Why is Japan a popular destination</h1>
 				<h1 className="text-xl text-center p-2 mb-2 text-gray-700">Explore why Japan is considered as one of the best study destination for international students.</h1>
 
-				<div className="container why-fate grid grid-cols-1 place-items-center text-center md:grid-cols-2 lg:grid-cols-3">
+				<div className="container why-fate grid grid-cols-1 text-center md:grid-cols-2 lg:grid-cols-3">
 					{cards.map((card, index) => (
 						<div className="card border border-transparent transition duration-300 hover:border hover:border-teal-400 hover:-translate-y-0.5 hover:shadow-md p-8" key={index}>
 							<img className="mx-auto" src={card.imageUrl} alt={card.title} />
