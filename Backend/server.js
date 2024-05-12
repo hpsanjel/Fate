@@ -3,7 +3,7 @@ require("./DBConnect");
 const express = require("express");
 const cors = require("cors");
 const MessagesModel = require("./models/Messages");
-const SubscriberModel = require("./models/Subscribers");
+// const SubscriberModel = require("./models/Subscribers");
 const TestimonialsModel = require("./models/Testimonials");
 const BlogsModel = require("./models/Blogs");
 const bodyParser = require("body-parser");
@@ -31,14 +31,14 @@ app.get("/getBlogs", async (req, res) => {
 	res.json(blogs);
 });
 
-app.get("/getSubscribers", async (req, res) => {
-	try {
-		const subscribers = await SubscriberModel.find({});
-		res.json(subscribers);
-	} catch (e) {
-		console.log(Error, e);
-	}
-});
+// app.get("/getSubscribers", async (req, res) => {
+// 	try {
+// 		const subscribers = await SubscriberModel.find({});
+// 		res.json(subscribers);
+// 	} catch (e) {
+// 		console.log(Error, e);
+// 	}
+// });
 
 app.post("/createMessage", async (req, res) => {
 	const newMessage = new MessagesModel();
@@ -51,14 +51,14 @@ app.post("/createMessage", async (req, res) => {
 	res.json(doc);
 });
 
-app.post("/addSubscriber", async (req, res) => {
-	const newSubscriber = new SubscriberModel();
-	newSubscriber.email = req.body.email;
+// app.post("/addSubscriber", async (req, res) => {
+// 	const newSubscriber = new SubscriberModel();
+// 	newSubscriber.email = req.body.email;
 
-	const docSubs = await newSubscriber.save();
-	console.log(docSubs);
-	res.json(docSubs);
-});
+// 	const docSubs = await newSubscriber.save();
+// 	console.log(docSubs);
+// 	res.json(docSubs);
+// });
 
 app.post("/generate-essay", async (req, res) => {
 	const newPrompt = new PromptModel();
