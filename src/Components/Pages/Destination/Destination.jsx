@@ -41,7 +41,7 @@ const Destination = () => {
 
 								<p className="leading-6 my-4 line-clamp-3">{dest.region_desc}</p>
 
-								<Link to={`../destination-detail/${dest.region}`} className="group rounded-full bg-fateSecondaryLight/30 px-4 py-2 hover:bg-fateSecondaryLight/50 ">
+								<Link to={`../destination-detail/${dest.region}`} className="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-fatePrimary transition-all hover:bg-fatePrimary/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
 									{`Universities in ${dest.region}`}
 									<bi className="bi bi-arrow-right text-lg pl-1 group-hover:pl-2"></bi>
 								</Link>

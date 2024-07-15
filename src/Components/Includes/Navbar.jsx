@@ -39,7 +39,6 @@ const Navbar = () => {
 					</div>
 					<SocialMediaLinks />
 				</div>
-				<div></div>
 			</div>
 			<header className="bg-white border-b-2 border-fatePrimary shadow-lg">
 				<div className="container relative">

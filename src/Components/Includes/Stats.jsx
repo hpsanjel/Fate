@@ -3,7 +3,7 @@ import React from "react";
 const Stats = () => {
 	return (
 		<>
-			<div className="w-1/2 mx-auto grid gap-0 sm:grid-cols-2 md:grid-cols-4  shadow-lg my-40 text-white">
+			<div className="w-1/2 mx-auto grid gap-0 sm:grid-cols-2 md:grid-cols-4  shadow-lg sm:my-40 my-20 text-white">
 				<div className=" flex gap-4 h-full w-full p-4 place-items-center  justify-center bg-fatePrimary">
 					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-backpack-fill " viewBox="0 0 16 16">
 						<path d="M5 13v-3h4v.5a.5.5 0 0 0 1 0V10h1v3z" />

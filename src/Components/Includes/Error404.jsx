@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import SectionHeader from "./SectionHeader";
 import axios from "axios";
 
 const Error404 = () => {
 	const [data, setData] = useState([]);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const fetchData = () => {
@@ -28,9 +29,7 @@ const Error404 = () => {
 				<h3>Sorry, this page is not available right now!</h3>
 				<h4> Please visit later.</h4>
 				<br />
-				<Link to="/" className="primary-btn text-xs">
-					Go back to home
-				</Link>
+				<button onClick={() => navigate(-1)}>Go Back</button>
 			</div>
 			<div>
 				<div>

@@ -18,7 +18,7 @@ const calculateSimilarity = (student1, student2) => {
 	return similarityCount;
 };
 
-const groupStudentsIntoThrees = (students) => {
+const groupStudents = (students) => {
 	const groups = [];
 	const visited = new Set();
 
@@ -34,12 +34,12 @@ const groupStudentsIntoThrees = (students) => {
 				}
 			});
 
-			if (group.length === 3) {
+			if (group.length === 4) {
 				groups.push(group);
-			} else if (group.length > 3) {
+			} else if (group.length > 4) {
 				// Split larger groups into smaller groups of three
-				for (let i = 0; i < group.length; i += 3) {
-					groups.push(group.slice(i, i + 3));
+				for (let i = 0; i < group.length; i += 4) {
+					groups.push(group.slice(i, i + 4));
 				}
 			}
 		}
@@ -60,7 +60,7 @@ const GroupingComponent = () => {
 	}, []);
 
 	const handleCreateGroup = () => {
-		const groups = groupStudentsIntoThrees(userData);
+		const groups = groupStudents(userData);
 		setGroupedStudents(groups);
 	};
 
@@ -70,6 +70,11 @@ const GroupingComponent = () => {
 			<button onClick={handleCreateGroup} className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md mb-4">
 				Create Group of 3
 			</button>
+			{/* <select onChange={handleCreateGroup}>
+				<option value="3">Three</option>
+				<option value="4">Four</option>
+				<option value="5">Five</option>
+			</select> */}
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 				{groupedStudents.map((group, index) => (
 					<div key={index} className="border border-gray-300 p-4 rounded-md">

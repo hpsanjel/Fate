@@ -31,20 +31,20 @@ const WhyJapan = () => {
 	];
 
 	return (
-		<div className="mt-60">
+		<div className="sm:mt-60 bg-fateSecondaryDark/20 py-1">
 			<SectionHeader firstline="Why Study in Japan" firstheading="Explore the reasons why" shortdesc="Get to know more why Japan might be your best destination for study, work and live" />
 			<div className="container bg-fateSecondaryDark/40 grid md:grid-cols-2 sm:grid-cols-12 items-center p-6 ">
 				{cards.map((card, index) => (
 					<div key={index} className={`items-center p-12 ${index % 3 === 0 ? "md:bg-fatePrimary md:text-white" : ""} bg-white sm:text-inherit`}>
 						<div className="sm:col-span-5 md:col-span-1 text-center">
-							<img className="mx-auto mb-4 w-40" src={card.imageUrl} alt={card.title} />
+							<img className="mx-auto mb-2 sm:mb-4 w-40" src={card.imageUrl} alt={card.title} />
 							<h3 className="text-lg font-bold">{card.title}</h3>
 						</div>
-						<p className="sm:col-span-7 md:col-span-1 p-12 sm:p-2">{card.description}</p>
+						<p className="sm:col-span-7 md:col-span-1 p-8 text-center leading-relaxed sm:text-left sm:p-2">{card.description}</p>
 					</div>
 				))}
 			</div>
-			<div className="mt-12 mb-24" style={{ display: "flex", justifyContent: "center" }}>
+			<div className="my-12" style={{ display: "flex", justifyContent: "center" }}>
 				<SecondaryButton type="submit" onClick={() => navigate(`/Destination`)}>
 					Explore More Reasons
 				</SecondaryButton>

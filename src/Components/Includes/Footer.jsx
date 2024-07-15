@@ -35,7 +35,8 @@ const Footer = () => {
 
 	return (
 		<>
-			<ToastContainer />;{/* <img classNameName="h-1/4 object-cover" src="https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/banner_mapsHD.png" alt="kart"></img> */}
+			<ToastContainer />
+			{/* <img classNameName="h-1/4 object-cover" src="https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/banner_mapsHD.png" alt="kart"></img> */}
 			<footer className="relative bg-gradient-to-b from-fatePrimary to-slate-800 text-white/80">
 				<div className="container mx-auto pb-8 pt-16 sm:px-8 lg:px-0">
 					<div className="mx-auto max-w-xl">
@@ -43,7 +44,7 @@ const Footer = () => {
 							Want us to email you with the <br /> latest admission offers?
 						</strong>
 
-						<form onSubmit={handleSubscriberSubmit} className="mt-6">
+						<form onSubmit={handleSubscriberSubmit} className="mt-6 w-[90%] mx-auto">
 							<div className="relative max-w-lg">
 								<label className="sr-only" htmlFor="email">
 									Email
