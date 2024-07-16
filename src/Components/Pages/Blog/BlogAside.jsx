@@ -14,7 +14,7 @@ const BlogPost = () => {
 	}, [selectedCategory]);
 	return (
 		<>
-			<section className="bg-white mt-12 rounded-lg p-4 w-full">
+			<section className="bg-white mt-7 rounded-lg p-4 w-full">
 				<div className="container">
 					<div className="mx-8 bg-slate-50 pb-2 mb-6 place-items-center shadow-md p-4">
 						{/* <h1 className="text-xl bg-fatePrimary text-white px-0 py-1 text-center mb-6">Get more insights from the Blogs</h1> */}

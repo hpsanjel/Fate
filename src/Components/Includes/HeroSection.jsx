@@ -30,7 +30,7 @@ const HeroSection = () => {
 						Explore More
 					</OutlinedButton>
 				</div>
-				{/* <HeroVideo /> */}
+				<HeroVideo />
 				<Stats />
 				<SlidingUniversities />
 			</div>

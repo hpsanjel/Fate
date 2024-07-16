@@ -71,7 +71,7 @@ const Blog = () => {
 			<SectionHeader firstline="Learn more about us" firstheading={pageTitle} shortdesc="Everything you may like to explore more about Japan and its best offers" />
 
 			<div className="container flex relative">
-				<input type="text" className="w-full focus:outline-none border-1 border-slate-300 focus:border-1 focus:border-slate-500 bg-white rounded-md mt-8 p-4 mx-6" placeholder="search blogs..." onChange={handleInputChange}></input>
+				<input type="text" className="w-full focus:outline-none border-1 border-slate-300 focus:border-1 focus:border-slate-500 bg-white rounded-md my-6 p-4" placeholder="search blogs..." onChange={handleInputChange}></input>
 				<i className="bi bi-search text-lg absolute top-12 right-10"></i>
 			</div>
 			{/* 
@@ -87,14 +87,14 @@ const Blog = () => {
 
 			<div className="container grid md:grid-cols-12">
 				{/* <div className="grid col-span-8 overflow-y-scroll no-scrollbar"> */}
-				<div className="grid col-span-8">
-					<div className="grid grid-cols-1 gap-8 sm:mx-6 mt-7 mb-4 pt-4 pb-4">
+				<div className="grid col-span-8 mb-8">
+					<div className="grid grid-cols-1 gap-8 mt-7 mb-4">
 						{searchBlogsKey && <span className="text-sm text-green-700 -mt-10">{searchBlogsResults.length > 0 ? `${searchBlogsResults.length} relevant ${searchBlogsResults.length === 1 ? "blog" : "blogs"} found` : <h3 className="text-sm text-red-700">{noResultsFound ? `No results found for the term "${searchBlogsKey}".` : "Loading..."}</h3>}</span>}
 
 						{!noResultsFound &&
 							searchBlogsResults.map((blog, index) => (
 								<div key={index} className="flex items-center justify-center">
-									<div className="relative flex w-full flex-row rounded-lg bg-white bg-clip-border text-gray-700 shadow-md mx-6">
+									<div className="relative flex w-full flex-row rounded-lg bg-white bg-clip-border text-gray-700 shadow-md mr-8">
 										<div className="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
 											<img src={blog.imageSource} alt={blog.imageAlt} className="h-full w-full object-cover" />
 										</div>

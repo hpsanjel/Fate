@@ -6,7 +6,7 @@ const FAQs = () => {
 		<>
 			<SectionHeader firstline="Why Study in Japan" firstheading="FAQs" shortdesc="Get to know more why Japan might be your best destination for study, work and live" />
 
-			<div className="container py-10 grid md:grid-cols-2">
+			<div className="container py-10 mx-auto">
 				<div className="w-full grid space-y-6 m-4">
 					<details className="group border-s-4 border-fatePrimary bg-gray-50 p-4 [&_summary::-webkit-details-marker]:hidden" open>
 						<summary className="flex cursor-pointer items-center justify-between gap-1.5">

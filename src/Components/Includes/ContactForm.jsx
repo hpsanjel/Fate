@@ -82,8 +82,8 @@ const ContactForm = () => {
 	};
 
 	return (
-		<div className="container w-full md:w-1/2 grid md:grid-cols-12 p-8 md:p-20">
-			<div className="w-full bg-white pb-2 border-2 border-fatePrimary/10 col-span-7 p-8 lg:p-12 lg:pb-4 shadow-sm">
+		<div className="container grid md:grid-cols-12 p-8 md:p-20">
+			<div className=" bg-white pb-2 border-2 border-fatePrimary/10 grid sm:col-span-7 p-8 lg:p-12 lg:pb-4 shadow-sm">
 				<form onSubmit={handleFormSubmit}>
 					<div className="mb-6">
 						<label className="block mb-2 text-sm font-semibold" htmlFor="name">

@@ -32,7 +32,9 @@ import CareerPage from "./Components/Pages/CareerPage";
 import VoiceOfMD from "./Components/Pages/VoiceOfMD";
 import SlidingUniversities from "./Components/Includes/SlidingUniversities";
 import CallToAction2 from "./Components/Includes/CallToAction2";
-
+import GlobalStats from "./Components/Pages/GlobalStats";
+import CountryStats from "./Components/Pages/CountryStats";
+import LandingPage from "./Components/Pages/LandingPage";
 function App() {
 	return (
 		<>
@@ -40,6 +42,9 @@ function App() {
 				{/* <Matcher /> */}
 				<ModalProvider>
 					<Navbar />
+					{/* <LandingPage /> */}
+					{/* <GlobalStats />
+					<CountryStats /> */}
 					{/* <VoiceOfMD />
 					<CareerPage /> */}
 					{/* <WhoAreWe /> */}
