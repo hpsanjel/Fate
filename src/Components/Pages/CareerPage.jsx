@@ -34,39 +34,39 @@ const CareerPage = () => {
 	};
 
 	return (
-		<div className=" mx-auto ">
-			<div className=" flex relative">
-				<input type="text" className="w-full focus:outline-none border-1 border-slate-300 focus:border-1 focus:border-slate-500 bg-white rounded-md mt-8 p-4 mx-6" value={searchTerm} onChange={handleSearch} placeholder="Search for jobs..."></input>
+		<div className="min-h-screen bg-fatePrimary/10 mx-auto ">
+			<div className="max-w-lg mx-6 sm:mx-auto flex relative">
+				<input type="text" className="w-full focus:outline-none border-2 border-slate-300 focus:border-slate-500 bg-white rounded-full mt-8 p-4 mx-6" value={searchTerm} onChange={handleSearch} placeholder="Search for jobs..."></input>
 				<i className="bi bi-search text-lg absolute top-12 right-10"></i>
 			</div>
 
-			<div className="px-4 py-8">
+			<div className="p-8">
 				<div>
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 						{filteredJobs.length > 0 ? (
 							filteredJobs.map((job) => (
-								<div key={job.id} className="bg-white rounded-lg shadow flex">
-									<img src={`${job.logo}`} alt={`${job.department} Logo`} className="h-20 w-20 m-4 hover:transform hover:scale-110" />
+								<div key={job.id} className="relative bg-slate-100 rounded-lg shadow flex pt-8">
+									<img src={`${job.logo}`} alt={`${job.department} Logo`} className="h-20 w-20 m-4 rounded-full object-cover hover:transform hover:scale-110" />
 
 									<div className="w-full m-4 ">
 										<div className=" flex justify-between">
-											<h3 className="text-lg font-semibold">{job.position}</h3>
-											<i class="bi bi-three-dots-vertical"></i>{" "}
+											<h3 className="text-lg">{job.position}</h3>
+											<i class="bi bi-three-dots-vertical"></i>
 										</div>
-										<p className="text-gray-600">{job.department}</p>
+										<p className="text-gray-600 text-sm">{job.department}</p>
 										<div className=" flex justify-between">
-											<p className="text-gray-400">{job.salary}</p>
+											<p className="text-fatePrimary">{job.salary}</p>
 											<div className="space-x-1">
-												<button className="border border-fateSecondaryDark rounded-md px-2 py-1 text-xs text-fateSecondaryDark hover:bg-fatePrimary hover:text-white ">{job.type}</button>
 												<button className="bg-fateSecondaryDark rounded-md px-2 py-1 text-xs text-white hover:bg-fatePrimary ">Apply</button>
 											</div>
 										</div>
 									</div>
+									<button className="absolute top-2 left-2 px-2 py-1 text-xs rounded-md text-black bg-fatePrimary/10 hover:bg-fatePrimary/30 ">{job.type}</button>
 								</div>
 							))
 						) : (
 							<p className="text-red-500 text-md">
-								No results found for <span className="font-bold">{searchTerm}</span>
+								No jobs are currently available for your search word <span className="text-fatePrimary">{searchTerm}</span>
 							</p>
 						)}
 					</div>

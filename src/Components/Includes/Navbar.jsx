@@ -6,7 +6,6 @@ import { useModal } from "./ModalContext";
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	// const [isModalOpen, setIsModalOpen] = useState(false);
 	const navRef = useRef();
 	const { openModal, closeModal, isModalOpen } = useModal();
 
@@ -17,45 +16,39 @@ const Navbar = () => {
 
 	return (
 		<>
-			<div className="flex items-center justify-center bg-fatePrimary text-white py-3 top-0 px-8 md:px-0">
-				<div className="flex justify-between">
-					<div className="flex place-items-center text-sm text-white">
-						<i className="bi bi-phone"></i>
-						<p className="mr-4">9851000735</p>
-						<i className="bi bi-envelope mr-1"></i>
-						<p className="">info@fate.edu.np</p>
-					</div>
-					<SocialMediaLinks />
+			<div className="hidden sm:flex items-center sm:justify-between  bg-fatePrimary text-white py-3 top-0 px-8">
+				<div className="flex place-items-center text-sm text-white">
+					<i className="bi bi-phone"></i>
+					<p className="mr-4">9851000735</p>
+					<i className="bi bi-envelope mr-1"></i>
+					<p className="">info@fate.edu.np</p>
 				</div>
+				<SocialMediaLinks />
 			</div>
-			<header className="bg-white border-b-2 border-fatePrimary shadow-lg">
-				<div className=" flex items-center justify-between">
-					<div className="flex items-center px-8 md:px-0">
+
+			<header className="bg-white border-b-2 border-fatePrimary shadow-lg px-8">
+				<div className="flex items-center justify-between">
+					<div className="flex items-center">
 						<div className="logo">
 							<Link to="/">
 								<img src="/images/Fate-Logo.png" alt="Fate Logo" />
 							</Link>
 						</div>
-						<nav ref={navRef} className="">
-							<NavLink className="text-black hover:text-slate-600" to="/" onClick={showNavBar}>
+						<nav ref={navRef} className="bg-gradient-to-b from-fateSecondaryDark to-transparent sm:bg-none">
+							<NavLink className="text-black hover:text-fatePrimary" to="/" onClick={showNavBar}>
 								Home
 							</NavLink>
-							<NavLink className="text-black hover:text-slate-600" to="/about" onClick={showNavBar}>
+							<NavLink className="text-black hover:text-fatePrimary" to="/about" onClick={showNavBar}>
 								About
 							</NavLink>
-							<NavLink className="text-black hover:text-slate-600" to="/destination" onClick={showNavBar}>
+							<NavLink className="text-black hover:text-fatePrimary" to="/destination" onClick={showNavBar}>
 								Destination
 							</NavLink>
-							<NavLink className="text-black hover:text-slate-600" to="/blog" onClick={showNavBar}>
+							<NavLink className="text-black hover:text-fatePrimary" to="/blog" onClick={showNavBar}>
 								Blog
 							</NavLink>
-							{/* <NavLink className="hover:text-slate-600" to="/gallery" onClick={showNavBar}>
-							Gallery
-						</NavLink>
-						<NavLink className="hover:text-slate-600" to="/testimonial" onClick={showNavBar}>
-							Testimonials
-						</NavLink> */}
-							<NavLink className="text-black hover:text-slate-600" to="/contact" onClick={showNavBar}>
+
+							<NavLink className="text-black hover:text-fatePrimary" to="/contact" onClick={showNavBar}>
 								Contact
 							</NavLink>
 
@@ -64,23 +57,19 @@ const Navbar = () => {
 						</button> */}
 						</nav>
 					</div>
-					<div className="flex">
-						<PrimaryButton onClick={openModal} className="text-white font-medium">
-							{/* <PrimaryButton onClick={openModal} className="absolute -right-0 -top-96 md:-top-1 md:right-8 "> */}
-							Request Callback
-						</PrimaryButton>
-						<button className="nav_btn absolute top-0 right-2" onClick={showNavBar}>
-							{isMenuOpen ? <i className="bi bi-x"></i> : <i className="bi bi-list"></i>}
-						</button>
+					<div className="hidden sm:block">
+						<PrimaryButton onClick={openModal}>Request Callback</PrimaryButton>
 					</div>
+					<button className="nav_btn absolute top-2 right-2" onClick={showNavBar}>
+						{isMenuOpen ? <i className="bi bi-x"></i> : <i className="bi bi-list"></i>}
+					</button>
 				</div>
 			</header>
-			{/* {isModalOpen && <div className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-40" onClick={closeModal}></div>} */}
 
 			{isModalOpen ? (
 				<>
-					<div className="fixed top-0 left-0 w-full h-full bg-gray-900/40 transition-all z-40 duration-300" onClick={closeModal}></div>
-					<div id="callback-modal" tabIndex="-1" aria-hidden="true" className="fixed top-5 z-50 flex justify-center items-center w-full h-full ">
+					<div className="fixed top-0 left-0 w-full h-full bg-gray-900/80 transition-all z-40 duration-300" onClick={closeModal}></div>
+					<div id="callback-modal" tabIndex="-1" aria-hidden="true" className="fixed top-0 right-0 z-50 flex justify-center items-center w-full h-full ">
 						<div className="relative p-4 w-full max-w-md max-h-full">
 							<div className="relative bg-white rounded-lg shadow dark:bg-black">
 								<div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">

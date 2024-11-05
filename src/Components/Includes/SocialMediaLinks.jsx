@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const SocialMediaLinks = () => {
 	return (
-		<div className="flex gap-4">
+		<div className="flex gap-2">
 			<Link className="text-white/80 transition hover:text-white" to="http://www.facebook.com/hpsanjel" target="_blank" rel="noreferrer">
 				<span className="sr-only"> Facebook </span>
 

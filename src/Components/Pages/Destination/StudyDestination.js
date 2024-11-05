@@ -15,7 +15,7 @@ const StudyDestinations = [
 		region_desc: "Kyoto is a historical city in Japan, known for its temples, gardens, and traditional wooden houses. It's a cultural hub with numerous universities attracting students from around the world.",
 		region_img: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSGrB3ya6iI4mfuWPOkeCvbciFJ0z2tV3mu5M_PSjIzE7IubCtwozEVtdJ7apKLJlao3loMylA8xAp5UmR_wqwlF9RYeyYAM3VWbDH9mA",
 		University: "Doshisha University",
-		Website: "http://www.doshisha.ac.jp/english/index.html",
+		Website: "https://www.doshisha.ac.jp",
 	},
 	{
 		id: 3,
@@ -89,7 +89,6 @@ const StudyDestinations = [
 		University: "Meiji Gakuin University",
 		Website: "http://www.meijigakuin.ac.jp/index_en.html",
 	},
-	// Add other universities here...
 ];
 
 export default StudyDestinations;

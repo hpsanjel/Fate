@@ -13,29 +13,29 @@ const HeroSection = () => {
 	const { t } = useTranslation();
 
 	return (
-		<div className=" ">
-			<div className="mt-16 md:mt-60 px-8 md:px-0">
-				<div className="w-full text-center relative">
-					<h1 className="font-bold tracking-tight text-gray-900">
-						<span className=" text-fatePrimary text-5xl md:text-6xl">Study and Work in JAPAN 🇯🇵</span>
+		<div>
+			<div className="flex items-center px-8 h-[650px] opacity-80" style={{ backgroundImage: "url('/images/heroimage.jpeg')" }}>
+				<div className="w-fit mx-auto p-6 text-center relative bg-fatePrimary/90">
+					<h1 className="font-bold tracking-tight text-white">
+						<span className=" text-white text-5xl md:text-6xl">Study and Work in JAPAN 🇯🇵</span>
 					</h1>
-					<p className="mt-6 text-md md:text-xl text-gray-600">
+					<p className="mt-6 text-md md:text-xl text-white">
 						Unlock world-className education and endless opportunities with our expert guidance.
 						<br /> With our service, you can easily fulfil your dream.
 					</p>
-					<StyledButton type="submit" onClick={() => navigate(`/Contact`)} className="mt-8 mr-2 mb-2">
-						Book Consultation
-					</StyledButton>
-					<OutlinedButton onClick={() => navigate(`/Destination`)} className="mt-2">
-						Explore More
-					</OutlinedButton>
+					<div>
+						<StyledButton type="submit" onClick={() => navigate(`/Contact`)} className="mt-8 mr-4 mb-2">
+							Book Consultation
+						</StyledButton>
+						<OutlinedButton onClick={() => navigate(`/Destination`)} className="mt-2">
+							Explore More
+						</OutlinedButton>
+					</div>
 				</div>
-				<HeroVideo />
-				<Stats />
-				<SlidingUniversities />
+				{/* <HeroVideo /> */}
 			</div>
-
-			{/* <link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet" /> */}
+			<Stats />
+			<SlidingUniversities />
 			<WhyJapan />
 		</div>
 	);

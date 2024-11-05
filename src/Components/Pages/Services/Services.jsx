@@ -4,7 +4,7 @@ import { FeatureCard } from "../../Includes/FeatureCard";
 const Services = () => {
 	return (
 		<section className="w-full">
-			<div className=" grid grid-cols-1 gap-6 p-12 my-6 text-center md:grid-cols-3 md:gap-6 lg:grid-cols-4 ">
+			<div className=" grid grid-cols-2 gap-6 p-12 my-6 text-center md:grid-cols-3 md:gap-6 lg:grid-cols-4 ">
 				<FeatureCard image="/images/location.png" altimage="location icon" imgwidth={56} feature="Centered Location" />
 
 				<FeatureCard image="/images/support.png" altText="image1" imgwidth={56} feature="24/7 Support" />

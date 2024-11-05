@@ -23,7 +23,7 @@ const WhyJapan = () => {
 			link: "/food-page",
 		},
 		{
-			title: "Carddeer Prospects",
+			title: "Career Prospects",
 			imageUrl: "https://openclassrooms.com/modules/sdzv4-main/latest/images/job_ready-7cd674ffd711044da492.svg",
 			description: "Japdan offers a dynamic job market with strong prospects in several sectors. Tech fields like software engineering and IT are booming, while engineers across various disciplines are also in high demand. The aging population fuels a need for medical professionals, especially doctors and surgeons. If you're a native English speaker, teaching remains a popular option.  Overall, fluency in Japanese will give you a significant edge.",
 			link: "/food-pdage",
@@ -31,16 +31,16 @@ const WhyJapan = () => {
 	];
 
 	return (
-		<div className=" py-1">
+		<div className="py-1">
 			<SectionHeader firstline="Why Study in Japan" firstheading="Explore the reasons why" shortdesc="Get to know more why Japan might be your best destination for study, work and live" />
-			<div className=" bg-fateSecondaryDark/40 grid md:grid-cols-2 sm:grid-cols-12 items-center p-6 rounded-full ">
+			<div className="w-full sm:w-[90%] mx-auto bg-fateSecondaryDark/40 grid md:grid-cols-2 sm:grid-cols-12 items-center p-2 rounded-full ">
 				{cards.map((card, index) => (
-					<div key={index} className={`items-center p-12 ${index % 3 === 0 ? "md:bg-fatePrimary md:text-white" : ""} bg-white sm:text-inherit`}>
-						<div className="sm:col-span-5 md:col-span-1 text-center">
+					<div key={index} className={`items-center p-6 ${index % 3 === 0 ? "md:bg-fatePrimary/90 md:text-white" : ""} bg-white sm:text-inherit`}>
+						<div className="sm:col-span-5 md:col-span-1">
 							<img className="mx-auto mb-2 sm:mb-4 w-24" src={card.imageUrl} alt={card.title} />
 							<h3 className="text-lg font-bold">{card.title}</h3>
 						</div>
-						<p className="sm:col-span-7 md:col-span-1 p-8 text-center leading-relaxed sm:text-left sm:p-2">{card.description}</p>
+						<p className="sm:col-span-7 md:col-span-1 py-2 leading-relaxed">{card.description}</p>
 					</div>
 				))}
 			</div>

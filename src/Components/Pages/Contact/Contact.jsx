@@ -12,9 +12,7 @@ const Contact = () => {
 	return (
 		<>
 			<Banner pageTitle={pageTitle} breadcrumbs={breadcrumbs} bgimage={bgimage} />
-			{/* <SectionHeader firstline="We want to hear from you" firstheading={pageTitle} shortdesc="Keep in touch with us. Remember you can book free consultation with us anytime." /> */}
 
-			{/* <WhoAreWe /> */}
 			<ContactForm />
 		</>
 	);

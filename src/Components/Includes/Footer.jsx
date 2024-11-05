@@ -37,8 +37,8 @@ const Footer = () => {
 		<>
 			<ToastContainer />
 			{/* <img classNameName="h-1/4 object-cover" src="https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/banner_mapsHD.png" alt="kart"></img> */}
-			<footer className="relative bg-gradient-to-b from-fatePrimary to-slate-800 text-white/80">
-				<div className=" mx-auto pb-8 pt-16 sm:px-8 lg:px-0">
+			<footer className="relative bg-gradient-to-t from-black to-fatePrimary text-white/80">
+				<div className=" mx-auto pb-8 pt-16 px-8">
 					<div className="mx-auto max-w-xl">
 						<strong className="block text-center text-xl font-bold  sm:text-3xl">
 							Want us to email you with the <br /> latest admission offers?
@@ -50,7 +50,7 @@ const Footer = () => {
 									Email
 								</label>
 								<input className="w-full rounded-full border-gray-200 bg-gray-100 p-4 pe-32 text-md font-medium" id="email" type="email" value={subscriber} onChange={handleSubscriber} placeholder="hari_sanjel@gmail.com" />
-								<PrimaryButton type="submit" className="absolute end-1.5 top-1/2 -translate-y-1/2">
+								<PrimaryButton type="submit" className="absolute end-2.5 top-1/2 -translate-y-1/2">
 									Subscribe
 								</PrimaryButton>{" "}
 								{/* <button className="absolute end-1 top-1/2 -translate-y-1/2 rounded-full bg-fatePrimary px-5 py-3 text-md font-medium text-white transition hover:bg-teal-700">Subscribe</button> */}
@@ -60,14 +60,14 @@ const Footer = () => {
 
 					<div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-32">
 						<div className="mx-auto max-w-sm lg:max-w-none">
-							<p className="mt-4 text-center  lg:text-left lg:text-lg">Fate International Japanese School Private Limited (FIJS) is the only institute which provides quality Japanese Language Teaching Facilities.</p>
+							<p className="my-4 text-center  lg:text-left lg:text-lg">Fate International Japanese School Private Limited (FIJS) is the only institute which provides quality Japanese Language Teaching Facilities.</p>
 
 							<SocialMediaLinks />
 						</div>
 
 						<div className="grid grid-cols-1 gap-8 text-center lg:grid-cols-3 lg:text-left">
 							<div>
-								<strong className="font-medium text-white hover:text-white"> Services </strong>
+								<strong className="font-medium text-white"> Services </strong>
 
 								<ul className="mt-6 space-y-1">
 									{/* <li>
@@ -98,7 +98,7 @@ const Footer = () => {
 							</div>
 
 							<div>
-								<strong className="font-medium text-white hover:text-white/80"> About </strong>
+								<strong className="font-medium text-white"> About </strong>
 
 								<ul className="mt-6 space-y-1">
 									<li>
@@ -131,7 +131,7 @@ const Footer = () => {
 							</div>
 
 							<div>
-								<strong className="font-medium text-white hover:text-white/80"> Support </strong>
+								<strong className="font-medium text-white"> Support </strong>
 
 								<ul className="mt-6 space-y-1">
 									<li>

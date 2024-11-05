@@ -34,6 +34,7 @@ body {
 	font-size: 16px;
 	max-width: 1400px;
 	margin: 0 auto;
+	background-color: #e6fef9;
 }
 
 a {
@@ -44,7 +45,7 @@ a {
 	max-width: 1400px;
 	margin: 0 auto;
 	flex: 1;
-	background-color: #f1f1f1;
+	background-color: #f5ecec;
 }
 
 li {

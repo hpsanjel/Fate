@@ -42,18 +42,17 @@ header .nav_btn {
 	header nav {
 		position: fixed !important;
 		top: 0;
-		left: 0;
+		right: 0;
 		padding-top: 4rem;
-		/* height: fit-content; */
 		height: 100vh !important;
-		width: 100%;
+		width: 50%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		color: #20534a;
 		background-color: #e8f7f9;
 		transition: 0.2s all ease-in-out;
-		transform: translateY(-100vh);
+		transform: translateX(100vh);
 		z-index: 99;
 	}
 

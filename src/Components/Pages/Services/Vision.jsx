@@ -3,7 +3,7 @@ import InfoCard from "../../Includes/InfoCard";
 
 export const Vision = () => {
 	return (
-		<div className="bg-white sm:p-20">
+		<div className="">
 			<div className=" grid grid-cols-1 gap-6 p-12 my-6 text-center md:text-left md:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:gap-10 ">
 				<InfoCard title="Vision" image="/images/vision.png" altText="Vision" description="Empowering Nepali students to bridge cultural gaps, excel in Japanese language, and thrive in Japan's educational and professional landscape through tailored guidance and immersive experiences." />
 

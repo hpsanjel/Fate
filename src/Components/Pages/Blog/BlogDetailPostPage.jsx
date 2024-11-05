@@ -4,6 +4,7 @@ import BlogPosts from "./MainBlogData";
 import { useParams } from "react-router-dom";
 import SectionHeader from "../../Includes/SectionHeader";
 import { slugify } from "../../Includes/Slugify";
+import BlogAside from "./BlogAside";
 
 import AsideBlogCard from "./AsideBlogCard";
 
@@ -38,6 +39,7 @@ const BlogDetailPostPage = () => {
 					</div>
 				</div>
 				<div id="more-blogs-aside" className="grid grid-col-1 col-span-1">
+					<BlogAside />
 					<div className="mb-24 bg-gradient-to-r to-fateSecondaryLight/10 from-fateSecondaryDark/10">
 						{filteredPosts.map((blog, index) => {
 							return <AsideBlogCard key={index} date={blog.blogDate} CardTitle={blog.blogTitle} CardDescription={blog.blogContent} image={blog.imageSource} author={blog.blogAuthor} alt={blog.imageAlt} />;

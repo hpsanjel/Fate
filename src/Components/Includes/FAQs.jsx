@@ -3,10 +3,9 @@ import SectionHeader from "./SectionHeader";
 
 const FAQs = () => {
 	return (
-		<>
-			<SectionHeader firstline="Why Study in Japan" firstheading="FAQs" shortdesc="Get to know more why Japan might be your best destination for study, work and live" />
-
-			<div className=" py-10 mx-auto">
+		<div className="bg-fatePrimary/10">
+			<div className="max-w-2xl py-10 mx-8 sm:mx-auto">
+				<SectionHeader firstline="Why Study in Japan" firstheading="FAQs" shortdesc="Get to know more why Japan might be your best destination for study, work and live" />
 				<div className="w-full grid space-y-6 m-4">
 					<details className="group border-s-4 border-fatePrimary bg-gray-50 p-4 [&_summary::-webkit-details-marker]:hidden" open>
 						<summary className="flex cursor-pointer items-center justify-between gap-1.5">
@@ -65,7 +64,7 @@ const FAQs = () => {
 					</details>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
