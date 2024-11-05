@@ -24,7 +24,7 @@ const Testimony = () => {
 		console.log(testimony);
 	};
 	return (
-		<div className="container">
+		<div className="">
 			<form onSubmit={handleSubmitTestimony} action="POST">
 				<input name="name" value={testimony.name} onChange={handleSubmitTestimony} type="text"></input>
 				<input name="date" value={testimony.date} onChange={handleSubmitTestimony} type="text"></input>

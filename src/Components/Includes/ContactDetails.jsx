@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactDetails = () => {
 	return (
-		<div className="pb-2 border-2 bg-fatePrimary/10 grid-cols-1 sm:col-span-5 p-8 lg:p-12 lg:pb-4 shadow-sm">
+		<div className="flex flex-col items-center justify-center border-2 bg-fatePrimary/30 text-black sm:col-span-5">
 			<div className="flex flex-col items-center gap-y-1 hover:text-fatePrimary/90 mb-8">
 				<i className="bi bi-geo-alt sm:text-5xl text-3xl mb-2 "></i>
 				<h3 className="text-lg font-medium">Address</h3>

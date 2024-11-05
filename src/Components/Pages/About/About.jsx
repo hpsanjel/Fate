@@ -13,7 +13,7 @@ const About = () => {
 		<>
 			<Banner pageTitle={pageTitle} breadcrumbs={breadcrumbs} bgimage={bgimage} />
 			{/* <Example /> */}
-			<div className="container">
+			<div className="">
 				<SectionHeader firstline="Know us Better" firstheading={pageTitle} shortdesc="Nepal's bridge to top Japanese universities. Empowering dreams, one student at a time. " />
 			</div>
 			<div className="mb-24">

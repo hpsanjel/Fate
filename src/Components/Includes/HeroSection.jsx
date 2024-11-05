@@ -13,13 +13,13 @@ const HeroSection = () => {
 	const { t } = useTranslation();
 
 	return (
-		<div className="container">
+		<div className=" ">
 			<div className="mt-16 md:mt-60 px-8 md:px-0">
 				<div className="w-full text-center relative">
 					<h1 className="font-bold tracking-tight text-gray-900">
-						<span className=" text-fatePrimary text-5xl md:text-6xl">Launch Your Future in JAPAN 🇯🇵</span>
+						<span className=" text-fatePrimary text-5xl md:text-6xl">Study and Work in JAPAN 🇯🇵</span>
 					</h1>
-					<p className="mt-2 text-md md:text-xl text-gray-600">
+					<p className="mt-6 text-md md:text-xl text-gray-600">
 						Unlock world-className education and endless opportunities with our expert guidance.
 						<br /> With our service, you can easily fulfil your dream.
 					</p>

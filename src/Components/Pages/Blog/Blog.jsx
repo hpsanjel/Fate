@@ -12,6 +12,7 @@ const Blog = () => {
 	const [searchBlogsKey, setSearchBlogsKey] = useState("");
 	const [searchBlogsResults, setSearchBlogsResults] = useState([]);
 	const [noResultsFound, setNoResultsFound] = useState(false);
+	const [blog, setBlog] = useState({});
 
 	const navigate = useNavigate();
 
@@ -66,76 +67,64 @@ const Blog = () => {
 	// };
 
 	return (
-		<>
+		<div className="">
 			<Banner pageTitle={pageTitle} breadcrumbs={breadcrumbs} bgimage={bgimage} />
 			<SectionHeader firstline="Learn more about us" firstheading={pageTitle} shortdesc="Everything you may like to explore more about Japan and its best offers" />
 
-			<div className="container flex relative">
-				<input type="text" className="w-full focus:outline-none border-1 border-slate-300 focus:border-1 focus:border-slate-500 bg-white rounded-md my-6 p-4" placeholder="search blogs..." onChange={handleInputChange}></input>
-				<i className="bi bi-search text-lg absolute top-12 right-10"></i>
+			<div className=" relative flex ">
+				<input type="text" className="w-full border-2 focus:outline-none border-black bg-white rounded-md my-6 p-4" placeholder="search blogs..." onChange={handleInputChange}></input>
+				{/* <i className="bi bi-search text-lg absolute top-0 right-0"></i> */}
 			</div>
-			{/* 
-				<form onSubmit={handleSubmitBlog} action="POST">
-					Date <input name="date" value={blog.date} onChange={handleBlog} type="date"></input>
-					Author <input name="author" value={blog.author} onChange={handleBlog} type="text"></input>
-					Title <input name="title" value={blog.title} onChange={handleBlog} type="text"></input>
-					Blog Post <br />
-					<textarea rows="10" name="blogpost" value={blog.blogpost} onChange={handleBlog} type="text"></textarea>
-					<button className="btn primary-btn">Save Blog</button>
-				</form>
-			 */}
 
-			<div className="container grid md:grid-cols-12">
-				{/* <div className="grid col-span-8 overflow-y-scroll no-scrollbar"> */}
-				<div className="grid col-span-8 mb-8">
-					<div className="grid grid-cols-1 gap-8 mt-7 mb-4">
-						{searchBlogsKey && <span className="text-sm text-green-700 -mt-10">{searchBlogsResults.length > 0 ? `${searchBlogsResults.length} relevant ${searchBlogsResults.length === 1 ? "blog" : "blogs"} found` : <h3 className="text-sm text-red-700">{noResultsFound ? `No results found for the term "${searchBlogsKey}".` : "Loading..."}</h3>}</span>}
+			{/* <form onSubmit={handleSubmitBlog} action="POST">
+				Date <input name="date" value={blog.date} onChange={handleBlog} type="date"></input>
+				Author <input name="author" value={blog.author} onChange={handleBlog} type="text"></input>
+				Title <input name="title" value={blog.title} onChange={handleBlog} type="text"></input>
+				Blog Post <br />
+				<textarea rows="10" name="blogpost" value={blog.blogpost} onChange={handleBlog} type="text"></textarea>
+				<button className="btn primary-btn">Save Blog</button>
+			</form> */}
 
-						{!noResultsFound &&
-							searchBlogsResults.map((blog, index) => (
-								<div key={index} className="flex items-center justify-center">
-									<div className="relative flex w-full flex-row rounded-lg bg-white bg-clip-border text-gray-700 shadow-md mr-8">
-										<div className="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
-											<img src={blog.imageSource} alt={blog.imageAlt} className="h-full w-full object-cover" />
-										</div>
-										<div className="p-6">
-											<div className="flex justify-between mb-6 font-sans text-sm font-semibold leading-relaxed tracking-tight text-fatePrimary antialiased">
-												<div>
-													<i className="bi bi-pencil-square"></i> {blog.blogAuthor}
-												</div>
-												<div>
-													<i className="bi bi-calendar3 mr-1"></i>
-													{blog.blogDate}
-												</div>
-											</div>
-											<h4 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased" dangerouslySetInnerHTML={{ __html: highlightKeyword(blog.blogTitle, searchBlogsKey) }}></h4>
-											<p className="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased" dangerouslySetInnerHTML={{ __html: highlightKeyword(blog.blogContent, searchBlogsKey) }}></p>
-											<a className="inline-block" href="#">
-												<button
-													onClick={() => {
-														navigate(`/blog/${slugify(blog.blogTitle)}`);
-													}}
-													className="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-fatePrimary transition-all hover:bg-fatePrimary/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-													type="button"
-												>
-													Learn More
-													<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" aria-hidden="true" className="h-4 w-4">
-														<path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
-													</svg>
-												</button>
-											</a>
-										</div>
+			{/* <div className="grid col-span-8 overflow-y-scroll no-scrollbar"> */}
+			{searchBlogsKey && <span className=" text-sm text-green-700 -mt-10">{searchBlogsResults.length > 0 ? `${searchBlogsResults.length} relevant ${searchBlogsResults.length === 1 ? "blog" : "blogs"} found` : <h3 className="text-sm text-red-700">{noResultsFound ? `No results found for the term "${searchBlogsKey}".` : "Loading..."}</h3>}</span>}
+			<div className="grid grid-cols-2 gap-8 my-8">
+				{!noResultsFound &&
+					searchBlogsResults.map((blog, index) => (
+						<div key={index} className="relative flex w-full flex-row rounded-lg bg-white bg-clip-border text-gray-700 shadow-md mr-8">
+							<div className="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
+								<img src={blog.imageSource} alt={blog.imageAlt} className="h-full w-full object-cover" />
+							</div>
+							<div className="p-6">
+								<div className="flex justify-between mb-6 font-sans text-sm font-semibold leading-relaxed tracking-tight text-fatePrimary antialiased">
+									<div>
+										<i className="bi bi-pencil-square"></i> {blog.blogAuthor}
+									</div>
+									<div>
+										<i className="bi bi-calendar3 mr-1"></i>
+										{blog.blogDate}
 									</div>
 								</div>
-							))}
-					</div>
-				</div>
-
-				<div className="grid col-span-4 h-fit">
-					<BlogAside />
-				</div>
+								<h4 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased" dangerouslySetInnerHTML={{ __html: highlightKeyword(blog.blogTitle, searchBlogsKey) }}></h4>
+								<p className="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased" dangerouslySetInnerHTML={{ __html: highlightKeyword(blog.blogContent, searchBlogsKey) }}></p>
+								<a className="inline-block" href="#">
+									<button
+										onClick={() => {
+											navigate(`/blog/${slugify(blog.blogTitle)}`);
+										}}
+										className="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-fatePrimary transition-all hover:bg-fatePrimary/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+										type="button"
+									>
+										Learn More
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" aria-hidden="true" className="h-4 w-4">
+											<path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+										</svg>
+									</button>
+								</a>
+							</div>
+						</div>
+					))}
 			</div>
-		</>
+		</div>
 	);
 };
 

@@ -34,8 +34,8 @@ const CareerPage = () => {
 	};
 
 	return (
-		<div className="container mx-auto ">
-			<div className="container flex relative">
+		<div className=" mx-auto ">
+			<div className=" flex relative">
 				<input type="text" className="w-full focus:outline-none border-1 border-slate-300 focus:border-1 focus:border-slate-500 bg-white rounded-md mt-8 p-4 mx-6" value={searchTerm} onChange={handleSearch} placeholder="Search for jobs..."></input>
 				<i className="bi bi-search text-lg absolute top-12 right-10"></i>
 			</div>

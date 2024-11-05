@@ -5,7 +5,7 @@ export default function Component() {
 	return (
 		<>
 			<header className="w-full bg-gray-100 py-6 dark:bg-gray-800">
-				<div className="container mx-auto flex items-center justify-between px-4 md:px-6">
+				<div className=" mx-auto flex items-center justify-between px-4 md:px-6">
 					<Link className="flex items-center" href="#">
 						<CalendarDaysIcon className="h-8 w-8 text-primary-500" />
 						<span className="ml-2 text-xl font-bold">Sunshine Daycare</span>
@@ -34,7 +34,7 @@ export default function Component() {
 			</header>
 			<main>
 				<section className="w-full bg-gray-100 py-20 dark:bg-gray-800">
-					<div className="container mx-auto px-4 md:px-6">
+					<div className=" mx-auto px-4 md:px-6">
 						<div className="grid grid-cols-1 gap-8 md:grid-cols-2">
 							<div className="space-y-4">
 								<h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">Welcome to Sunshine Daycare</h1>
@@ -58,7 +58,7 @@ export default function Component() {
 					</div>
 				</section>
 				<section className="w-full py-20" id="about">
-					<div className="container mx-auto px-4 md:px-6">
+					<div className=" mx-auto px-4 md:px-6">
 						<div className="grid grid-cols-1 gap-8 md:grid-cols-2">
 							<div className="space-y-4">
 								<h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">Our Philosophy</h2>
@@ -82,7 +82,7 @@ export default function Component() {
 					</div>
 				</section>
 				<section className="w-full bg-gray-100 py-20 dark:bg-gray-800" id="gallery">
-					<div className="container mx-auto px-4 md:px-6">
+					<div className=" mx-auto px-4 md:px-6">
 						<h2 className="mb-8 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">Our Facilities</h2>
 						<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 							<img
@@ -133,7 +133,7 @@ export default function Component() {
 					</div>
 				</section>
 				<section className="w-full py-20" id="staff">
-					<div className="container mx-auto px-4 md:px-6">
+					<div className=" mx-auto px-4 md:px-6">
 						<h2 className="mb-8 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">Meet Our Experienced Staff</h2>
 						<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 							<div className="space-y-2 rounded-lg bg-gray-100 p-4 dark:bg-gray-800">
@@ -176,7 +176,7 @@ export default function Component() {
 					</div>
 				</section>
 				<section className="w-full bg-gray-100 py-20 dark:bg-gray-800" id="services">
-					<div className="container mx-auto px-4 md:px-6">
+					<div className=" mx-auto px-4 md:px-6">
 						<h2 className="mb-8 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">Our Services</h2>
 						<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
 							<div className="space-y-2 rounded-lg bg-white p-4 shadow-md dark:bg-gray-950">
@@ -198,7 +198,7 @@ export default function Component() {
 					</div>
 				</section>
 				<section className="w-full py-20" id="contact">
-					<div className="container mx-auto px-4 md:px-6">
+					<div className=" mx-auto px-4 md:px-6">
 						<h2 className="mb-8 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">Contact Us</h2>
 						<div className="grid grid-cols-1 gap-8 md:grid-cols-2">
 							<div className="space-y-4">
@@ -246,7 +246,7 @@ export default function Component() {
 				</section>
 			</main>
 			<footer className="w-full bg-gray-100 py-6 dark:bg-gray-800">
-				<div className="container mx-auto flex items-center justify-between px-4 md:px-6">
+				<div className=" mx-auto flex items-center justify-between px-4 md:px-6">
 					<p className="text-gray-600 dark:text-gray-400">© 2024 Sunshine Daycare. All rights reserved.</p>
 					<div className="flex space-x-4">
 						<Link className="text-gray-600 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400" href="#">

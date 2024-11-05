@@ -3,7 +3,7 @@ import React from "react";
 const Description = () => {
 	return (
 		<section className="relative py-16 bg-fatePrimary/20">
-			<div className="container mx-auto">
+			<div className=" mx-auto">
 				<div className="flex flex-wrap items-center">
 					<div className="w-10/12 md:w-6/12 lg:w-4/12 md:px-12 md:mx-20 -mt-78">
 						<div className="relative flex flex-col break-words text-white w-full shadow-lg rounded-lg bg-fatePrimary">

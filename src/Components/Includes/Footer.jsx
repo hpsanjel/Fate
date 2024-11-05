@@ -38,7 +38,7 @@ const Footer = () => {
 			<ToastContainer />
 			{/* <img classNameName="h-1/4 object-cover" src="https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/banner_mapsHD.png" alt="kart"></img> */}
 			<footer className="relative bg-gradient-to-b from-fatePrimary to-slate-800 text-white/80">
-				<div className="container mx-auto pb-8 pt-16 sm:px-8 lg:px-0">
+				<div className=" mx-auto pb-8 pt-16 sm:px-8 lg:px-0">
 					<div className="mx-auto max-w-xl">
 						<strong className="block text-center text-xl font-bold  sm:text-3xl">
 							Want us to email you with the <br /> latest admission offers?
@@ -49,7 +49,7 @@ const Footer = () => {
 								<label className="sr-only" htmlFor="email">
 									Email
 								</label>
-								<input className="w-full rounded-full border-gray-200 bg-gray-100 p-4 pe-32 text-fatePrimary text-md font-medium" id="email" type="email" value={subscriber} onChange={handleSubscriber} placeholder="hari_sanjel@gmail.com" />
+								<input className="w-full rounded-full border-gray-200 bg-gray-100 p-4 pe-32 text-md font-medium" id="email" type="email" value={subscriber} onChange={handleSubscriber} placeholder="hari_sanjel@gmail.com" />
 								<PrimaryButton type="submit" className="absolute end-1.5 top-1/2 -translate-y-1/2">
 									Subscribe
 								</PrimaryButton>{" "}
@@ -170,14 +170,14 @@ const Footer = () => {
 					</div>
 				</div>
 				<button
-					className="absolute top-10 right-10"
+					className="absolute bottom-5 right-5 sm:top-10 sm:right-10"
 					onClick={() => {
 						window.scrollTo({ top: 0, behavior: "smooth" });
 					}}
 				>
 					<span className="sr-only">Back to top</span>
 
-					<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" className="hidden sm:block text-fateSecondaryLight hover:text-fateSecondaryDark bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+					<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" className="block text-fateSecondaryLight hover:text-fateSecondaryDark bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
 						<path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
 					</svg>
 				</button>

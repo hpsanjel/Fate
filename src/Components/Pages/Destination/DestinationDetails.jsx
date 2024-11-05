@@ -46,7 +46,7 @@ const DestinationDetails = () => {
 				})}
 			</div>
 
-			<div className="container mx-auto flex flex-wrap justify-center items-center gap-6 p-20">
+			<div className=" mx-auto flex flex-wrap justify-center items-center gap-6 p-20">
 				{region
 					? filtereddestinations.map((uni, index) => (
 							<article key={index} className="flex flex-col justify-center items-center w-[250px] h-[250px] rounded-xl bg-white p-3 shadow-md">

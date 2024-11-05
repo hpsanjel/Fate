@@ -2,7 +2,7 @@ import React from "react";
 
 const ApplicationProcess = () => {
 	return (
-		<div className="container lg:w-1/2 md:w-full p-8">
+		<div className=" lg:w-1/2 md:w-full p-8">
 			<div>
 				<h2>Documentation and Visa Process is quite easy through Fate International Pvt Ltd (FIA). A student should submit following documents and certificates to process Student Visa for Japan through Fate International Pvt Ltd (FIA).</h2>
 				<div className="relative pl-8 sm:pl-32 py-6 group">

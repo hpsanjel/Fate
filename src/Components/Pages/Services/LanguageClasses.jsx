@@ -6,7 +6,7 @@ const LanguageclassNamees = () => {
 		<>
 			{" "}
 			<SectionHeader firstline="Why Study in Japan" firstheading="Language Classes" shortdesc="Get to know more why Japan might be your best destination for study, work and live" />
-			<div className="container">
+			<div className="">
 				<h1 className="text-3xl text-fatePrimary mb-4">Language Classes</h1>
 				<table className="mx-auto w-full table-auto border-collapse mb-12 ">
 					<thead>
@@ -98,7 +98,7 @@ const LanguageclassNamees = () => {
 						</div>
 					</div>
 
-					<div className="container flex bg-gray-200 py-8">
+					<div className=" flex bg-gray-200 py-8">
 						<div className="w-1/2 px-20 py-4">
 							<span className="text-3xl block text-center mb-4">Achievement through our course</span>
 							Demonstrate goodwill and facilitate international communication at both a personal and organizational level. Build report and strengthen relationship with Japanese speaking colleagues and clients through a show of interest in the Japanese language and culture. By the end of your studies you will be well setup to use your knowledge if Japanese language and culture in the work place.

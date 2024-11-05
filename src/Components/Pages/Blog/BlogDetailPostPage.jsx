@@ -21,7 +21,7 @@ const BlogDetailPostPage = () => {
 	return (
 		<>
 			<SectionHeader firstheading="Blog Posts" />
-			<div className="container grid grid-cols-3 mb-12">
+			<div className=" grid grid-cols-3 mb-12">
 				<div id="main-blog-detail-page" className="text-white h-fit px-14 col-span-2 bg-fatePrimary">
 					<h1 className="text-3xl font-bold text-center mt-12">{blogPost.blogTitle}</h1>
 					<div className="flex justify-between my-12 bg-slate-100 px-8 py-2 text-fatePrimary rounded-md">

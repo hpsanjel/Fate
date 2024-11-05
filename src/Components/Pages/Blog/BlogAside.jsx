@@ -15,7 +15,7 @@ const BlogPost = () => {
 	return (
 		<>
 			<section className="bg-white mt-7 rounded-lg p-4 w-full">
-				<div className="container">
+				<div className="">
 					<div className="mx-8 bg-slate-50 pb-2 mb-6 place-items-center shadow-md p-4">
 						{/* <h1 className="text-xl bg-fatePrimary text-white px-0 py-1 text-center mb-6">Get more insights from the Blogs</h1> */}
 						<button className={`bg-${selectedCategory === "All" ? "fatePrimary" : "white"} ${selectedCategory === "All" ? "text-white" : "text-black"} px-3 py-2 mr-2 w-fit cursor rounded-lg`} onClick={() => setSelectedCategory("All")}>

@@ -24,7 +24,7 @@ const Error404 = () => {
 
 	return (
 		<>
-			<div className="container text-center p-20 min-h-screen bg-slate-100 rounded-lg mt-20">
+			<div className=" text-center p-20 min-h-screen bg-slate-100 rounded-lg mt-20">
 				<h1 className="text-lg mt-20">Error 404</h1>
 				<h3>Sorry, this page is not available right now!</h3>
 				<h4> Please visit later.</h4>

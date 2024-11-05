@@ -34,7 +34,7 @@ const SliderForm = () => {
 	// };
 
 	return (
-		<div className="container">
+		<div className="">
 			<div className="slideformcenter">
 				<section className="slide-form p-1 w-full -mx-2 md:w-1/2">
 					<h2 className="text-xl text-center tracking-wider">Explore Universities of Japan</h2>

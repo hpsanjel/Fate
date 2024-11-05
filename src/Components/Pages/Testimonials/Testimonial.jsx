@@ -62,7 +62,7 @@ const Testimonial = () => {
 			<Banner pageTitle={pageTitle} breadcrumbs={breadcrumbs} bgimage={bgimage} />
 			<SectionHeader firstline="What others say about us" firstheading={pageTitle} shortdesc="These are few of the motivating lines from our past students" />
 
-			{/* <div className="container w-1/4 bg-slate-100 m-4 p-4">
+			{/* <div className=" w-1/4 bg-slate-100 m-4 p-4">
 				<form onSubmit={handleSubmitTestimony} action="POST">
 					Name <input name="name" value={testimony.name} onChange={handleTestimony} type="text"></input>
 					Testimony <input name="testimony" value={testimony.testimony} onChange={handleTestimony} type="text"></input>
@@ -71,7 +71,7 @@ const Testimonial = () => {
 				</form>
 			</div> */}
 
-			<div className="container testimonials-container gap-4 grid grid-cols-1 justify-items-center md:grid-cols-3 md:gap-8 lg:gap-12">
+			<div className=" testimonials- gap-4 grid grid-cols-1 justify-items-center md:grid-cols-3 md:gap-8 lg:gap-12">
 				{testimonialsData.map((testimonial) => (
 					<div key={Math.random()} className="relative group bg-slate-200 mt-12 border border-slate-100 p-8 rounded-lg hover:scale-95">
 						<img src={testimonial.photo} alt={testimonial.name} className="absolute -top-8 left-44 ring-1 ring-fatePrimary bg-white p-1 rounded-full w-[80px] h-[80px] object-cover group-hover:scale-125" />

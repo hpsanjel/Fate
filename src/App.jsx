@@ -20,7 +20,6 @@ import "./Components/Includes/slide.css";
 import "./Components/Includes/SliderForm.css";
 import "react-toastify/dist/ReactToastify.css";
 import BlogDetailPostPage from "./Components/Pages/Blog/BlogDetailPostPage";
-import Matcher from "./Components/Matcher";
 import DestinationDetails from "./Components/Pages/Destination/DestinationDetails";
 import FAQs from "./Components/Includes/FAQs";
 import LanguageClasses from "./Components/Pages/Services/LanguageClasses";
@@ -39,7 +38,6 @@ function App() {
 	return (
 		<>
 			<Router>
-				{/* <Matcher /> */}
 				<ModalProvider>
 					<Navbar />
 					{/* <LandingPage /> */}

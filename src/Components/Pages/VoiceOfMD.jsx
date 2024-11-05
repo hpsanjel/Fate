@@ -2,7 +2,7 @@ import React from "react";
 
 const VoiceOfMD = () => {
 	return (
-		<div className="container grid grid-cols-3">
+		<div className=" grid grid-cols-3">
 			<div className="grid col-span-1 mx-auto">
 				<div className="text-2xl font-bold">Voice of Managing Director</div>
 				<img src="/public/images/md.jpeg"></img>
