@@ -10,7 +10,7 @@ const About = () => {
 	const bgimage = 'url("/images/headerbanner.png")';
 
 	return (
-		<>
+		<div className="container">
 			<Banner pageTitle={pageTitle} breadcrumbs={breadcrumbs} bgimage={bgimage} />
 
 			<SectionHeader firstline="Know us Better" firstheading={pageTitle} shortdesc="Nepal's bridge to top Japanese universities. Empowering dreams, one student at a time. " />
@@ -18,7 +18,7 @@ const About = () => {
 
 			<SectionHeader firstline="What we do" firstheading="Our Facilities" shortdesc="Your Japan study dream starts here: expert guidance, top university placement, scholarship support. " />
 			<Services />
-		</>
+		</div>
 	);
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import StyledButton from "./PrimaryButton";
+import PrimaryButton from "./PrimaryButton";
 import OutlinedButton from "./SecondaryButton";
 import Stats from "./Stats";
 import { useNavigate } from "react-router-dom";
@@ -13,20 +13,23 @@ const HeroSection = () => {
 	const { t } = useTranslation();
 
 	return (
-		<div>
-			<div className="flex items-center px-8 h-[650px] opacity-80" style={{ backgroundImage: "url('/images/heroimage.jpeg')" }}>
-				<div className="w-fit mx-auto p-6 text-center relative bg-fatePrimary/90">
-					<h1 className="font-bold tracking-tight text-white">
-						<span className=" text-white text-5xl md:text-6xl">Study and Work in JAPAN 🇯🇵</span>
+		<div className="container">
+			<div className="flex relative items-center px-8 h-[650px] opacity-80">
+				<img src="/images/heroimage.jpeg" alt="Hero Image" className="absolute inset-0 w-full h-full object-cover" />
+
+				<div className="max-w-2xl w-fit mx-auto p-8 text-center relative bg-[#dddbd7]">
+					<h1 className="font-bold tracking-tight">
+						<span className=" text-black text-4xl md:text-5xl">Study and Work in JAPAN</span>
 					</h1>
-					<p className="mt-6 text-md md:text-xl text-white">
+					<p className="mt-6 text-md md:text-xl text-black">
 						Unlock world-className education and endless opportunities with our expert guidance.
 						<br /> With our service, you can easily fulfil your dream.
 					</p>
 					<div>
-						<StyledButton type="submit" onClick={() => navigate(`/Contact`)} className="mt-8 mr-4 mb-2">
+						<PrimaryButton type="submit" onClick={() => navigate(`/Contact`)} className="mt-8 mr-4 mb-2">
 							Book Consultation
-						</StyledButton>
+						</PrimaryButton>
+
 						<OutlinedButton onClick={() => navigate(`/Destination`)} className="mt-2">
 							Explore More
 						</OutlinedButton>

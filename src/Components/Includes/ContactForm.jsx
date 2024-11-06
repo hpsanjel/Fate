@@ -85,9 +85,9 @@ const ContactForm = () => {
 	return (
 		<>
 			<SectionHeader firstline="Stay Updated" firstheading="Keep in touch" shortdesc="Get to know more why Japan might be your best destination for study, work and live" />
-			<div className=" grid md:grid-cols-12 pb-8  sm:pb-20 bg-slate-50">
-				<div className="bg-fatePrimary pb-2 mx-6 sm:m-0 grid sm:col-span-4 p-8 lg:p-12 lg:pb-4">
-					<form onSubmit={handleFormSubmit} className="text-white">
+			<div className=" grid md:grid-cols-12 pb-8  sm:pb-20">
+				<div className="bg-fatePrimary/10 pb-2 ml-8 grid sm:col-span-4 p-8 lg:p-12 lg:pb-4">
+					<form onSubmit={handleFormSubmit} className="text-black">
 						<div className="mb-6">
 							<label className="block mb-2 text-md" htmlFor="name">
 								Name
@@ -123,7 +123,7 @@ const ContactForm = () => {
 					</form>
 				</div>
 
-				<div className="grid sm:col-span-8 mx-6 sm:m-0">
+				<div className="grid sm:col-span-8 mx-8">
 					<ContactDetails />
 				</div>
 			</div>

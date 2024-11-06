@@ -10,11 +10,11 @@ const Contact = () => {
 	const bgimage = 'url("/images/heroimage.jpeg")';
 
 	return (
-		<>
+		<div className="container">
 			<Banner pageTitle={pageTitle} breadcrumbs={breadcrumbs} bgimage={bgimage} />
 
 			<ContactForm />
-		</>
+		</div>
 	);
 };
 

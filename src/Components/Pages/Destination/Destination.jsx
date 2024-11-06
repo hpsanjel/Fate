@@ -27,10 +27,10 @@ const Destination = () => {
 	});
 
 	return (
-		<>
+		<div className="container">
 			<Banner pageTitle={pageTitle} breadcrumbs={breadcrumbs} bgimage={bgimage} />
 			<SectionHeader firstline="Explore best universities" firstheading={pageTitle} shortdesc="You can choose the best universities of Japan as per your choice" />
-			<div className="rounded-lg text-left grid grid-cols-1 text-md md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 md:text-left md:gap-8">
+			<div className="rounded-lg text-left grid grid-cols-1 text-md md:grid-cols-2 lg:grid-cols-3 gap-6 p-8 md:text-left md:gap-8">
 				{uniqueRegions.map((region, id) => {
 					const dest = StudyDestinations.find((dest) => dest.region === region);
 					return (
@@ -50,7 +50,7 @@ const Destination = () => {
 					);
 				})}
 			</div>
-		</>
+		</div>
 	);
 };
 

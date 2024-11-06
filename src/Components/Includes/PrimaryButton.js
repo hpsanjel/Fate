@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const PrimaryButton = styled.button`
 	border: 1px solid transparent;
-	background-color: #bdaa66;
+	background-color: #7f6d2f;
 	color: white;
 	padding: 0.5rem 1.2rem;
 	text-align: center;

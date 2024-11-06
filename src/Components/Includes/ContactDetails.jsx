@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactDetails = () => {
 	return (
-		<div className="flex flex-col items-center justify-between bg-slate-200">
+		<div className="flex flex-col items-center justify-between bg-slate-100">
 			<div className="flex flex-col md:flex-row gap-4 sm:gap-16 mt-12 sm:mt-16 text-black">
 				<div className="flex flex-col items-center gap-y-1 hover:text-fatePrimary/90 mb-8">
 					<i className="bi bi-geo-alt sm:text-5xl text-3xl mb-2 "></i>

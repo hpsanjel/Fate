@@ -60,6 +60,7 @@ const Navbar = () => {
 					<div className="hidden sm:block">
 						<PrimaryButton onClick={openModal}>Request Callback</PrimaryButton>
 					</div>
+
 					<button className="nav_btn absolute top-2 right-2" onClick={showNavBar}>
 						{isMenuOpen ? <i className="bi bi-x"></i> : <i className="bi bi-list"></i>}
 					</button>

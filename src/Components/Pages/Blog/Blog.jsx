@@ -67,13 +67,13 @@ const Blog = () => {
 	// };
 
 	return (
-		<div className="">
+		<div className="container">
 			<Banner pageTitle={pageTitle} breadcrumbs={breadcrumbs} bgimage={bgimage} />
 			<SectionHeader firstline="Learn more about us" firstheading={pageTitle} shortdesc="Everything you may like to explore more about Japan and its best offers" />
 
 			<div className="w-2/3 md:w-1/2 mx-6 sm:mx-auto relative flex ">
-				<input type="text" className="w-full border-2 focus:outline-none border-black bg-white rounded-md my-6 p-4" placeholder="search blogs..." onChange={handleInputChange}></input>
-				{/* <i className="bi bi-search text-lg absolute top-0 right-0"></i> */}
+				<input type="text" className="w-full border-2 focus:outline-none border-black bg-white rounded-md my-6 p-4" placeholder="Search blogs..." onChange={handleInputChange}></input>
+				<i className="bi bi-search text-lg absolute top-10 right-4"></i>
 			</div>
 
 			{/* <form onSubmit={handleSubmitBlog} action="POST">
@@ -87,7 +87,7 @@ const Blog = () => {
 
 			{/* <div className="grid col-span-8 overflow-y-scroll no-scrollbar"> */}
 			{searchBlogsKey && <span className="text-sm text-green-700 -mt-10">{searchBlogsResults.length > 0 ? `${searchBlogsResults.length} relevant ${searchBlogsResults.length === 1 ? "blog" : "blogs"} found` : <h3 className="text-sm text-red-700">{noResultsFound ? `No results found for the term "${searchBlogsKey}".` : "Loading..."}</h3>}</span>}
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-7 mb-12 px-6">
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-7 pb-12 px-8">
 				{!noResultsFound &&
 					searchBlogsResults.map((blog, index) => (
 						<div key={index} className="relative flex w-full flex-row rounded-lg bg-white bg-clip-border text-gray-700 shadow-md mr-8">
