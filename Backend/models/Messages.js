@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const MessagesSchema = new mongoose.Schema({
+const MessagesSchema = new Schema({
 	name: {
 		type: String,
 		required: true,
@@ -22,6 +22,6 @@ const MessagesSchema = new mongoose.Schema({
 	},
 });
 
-const MessagesModel = mongoose.model("messages", MessagesSchema);
+const MessagesModel = model("messages", MessagesSchema);
 
-module.exports = MessagesModel;
+export default MessagesModel;

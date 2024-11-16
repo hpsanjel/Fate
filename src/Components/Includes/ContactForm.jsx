@@ -18,8 +18,9 @@ const ContactForm = () => {
 		const { name, value } = e.target;
 		setContactFormData({ ...contactFormData, [name]: value });
 
-		const validationErrors = validateInput(name, value);
-		setErrors({ ...errors, [name]: validationErrors });
+		// Validate input and update errors
+		const validationError = validateInput(name, value); // Get a string error message
+		setErrors({ ...errors, [name]: validationError }); // Store the error message as a string
 	};
 
 	const isValidEmail = (email) => {
@@ -28,41 +29,42 @@ const ContactForm = () => {
 		return emailRegex.test(email);
 	};
 
+	const validateInput = (name, value) => {
+		let error = ""; // Use a string instead of an object
+
+		switch (name) {
+			case "name":
+				if (!value.trim()) {
+					error = "Name is required";
+				}
+				break;
+			case "email":
+				if (!value.trim()) {
+					error = "Email is required";
+				} else if (!isValidEmail(value)) {
+					error = "Invalid email format";
+				}
+				break;
+			case "subject":
+				if (!value.trim()) {
+					error = "Subject is required";
+				}
+				break;
+			case "message":
+				if (!value.trim()) {
+					error = "Message is required";
+				}
+				break;
+			default:
+				break;
+		}
+
+		return error; // Return a string, not an object
+	};
+
 	const handleFormSubmit = async (e) => {
 		e.preventDefault();
-		const validateInput = (name, value) => {
-			const errors = {};
 
-			// Perform validation for each input field
-			switch (name) {
-				case "name":
-					if (!value.trim()) {
-						errors[name] = "Name is required";
-					}
-					break;
-				case "email":
-					if (!value.trim()) {
-						errors[name] = "Email is required";
-					} else if (!isValidEmail(value)) {
-						errors[name] = "Invalid email format";
-					}
-					break;
-				case "message":
-					if (!value.trim()) {
-						errors[name] = "Message is required";
-					}
-					break;
-				case "subject":
-					if (!value.trim()) {
-						errors[name] = "Subject is required";
-					}
-					break;
-				default:
-					break;
-			}
-
-			return errors;
-		};
 		const formErrors = {};
 		Object.keys(contactFormData).forEach((key) => {
 			const validationErrors = validateInput(key, contactFormData[key]);
@@ -77,9 +79,31 @@ const ContactForm = () => {
 			return;
 		}
 
-		// If no validation errors, proceed with form submission
-		toast.success("Form submission successful");
-		console.log("Form data:", contactFormData);
+		try {
+			const response = await fetch("http://localhost:8083/createMessage", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(contactFormData),
+			});
+
+			if (response.ok) {
+				toast.success("Message sent successfully!");
+				setContactFormData({
+					name: "",
+					email: "",
+					subject: "",
+					message: "",
+				});
+				setErrors({});
+			} else {
+				toast.error("Failed to send message. Please try again.");
+			}
+		} catch (error) {
+			console.error("Error submitting form:", error);
+			toast.error("An error occurred while sending your message.");
+		}
 	};
 
 	return (

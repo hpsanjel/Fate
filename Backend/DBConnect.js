@@ -1,40 +1,31 @@
-import mongoose, { Mongoose } from "mongoose";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-global.mongoose = {
-	conn: null,
-	promise: null,
-};
+dotenv.config();
 
-export async function dbConnect() {
+const connectToDB = async () => {
 	try {
-		if (global.mongoose && global.mongoose.conn) {
-			console.log("Connected from previous");
-			return global.mongoose.conn;
-		} else {
-			const conString = process.env.MONGO_URL;
-
-			const promise = mongoose.connect(conString, {
-				autoIndex: true,
-			});
-
-			global.mongoose = {
-				conn: await promise,
-				promise,
-			};
-
-			console.log("Newly connected");
-			return await promise;
-		}
+		await mongoose.connect(process.env.MONGODB_URI, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+			serverSelectionTimeoutMS: 20000,
+		});
+		console.log("Database connected successfully");
 	} catch (error) {
-		console.error("Error connecting to the database:", error);
-		throw new Error("Database connection failed");
+		console.error("Error connecting to the database:", error.message);
 	}
-}
 
-export const disconnect = () => {
-	if (!global.mongoose.conn) {
-		return;
-	}
-	global.mongoose.conn = null;
-	mongoose.disconnect();
+	mongoose.connection.on("connected", () => {
+		console.log("Mongoose connected to the database");
+	});
+
+	mongoose.connection.on("error", (err) => {
+		console.error("Mongoose connection error:", err.message);
+	});
+
+	mongoose.connection.on("disconnected", () => {
+		console.log("Mongoose disconnected");
+	});
 };
+
+export default connectToDB;

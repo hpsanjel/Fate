@@ -1,12 +1,12 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const PromptSchema = new mongoose.Schema({
+const PromptSchema = new Schema({
 	prompt: {
 		type: String,
 		required: true,
 	},
 });
 
-const PromptModel = mongoose.model("prompts", PromptSchema);
+const PromptModel = model("prompts", PromptSchema);
 
-module.exports = PromptModel;
+export default PromptModel;

@@ -3,15 +3,56 @@ import { Link, NavLink } from "react-router-dom";
 import SocialMediaLinks from "./SocialMediaLinks";
 import PrimaryButton from "./PrimaryButton";
 import { useModal } from "./ModalContext";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const navRef = useRef();
 	const { openModal, closeModal, isModalOpen } = useModal();
+	const [callbackFormData, setCallbackFormData] = useState({
+		name: "",
+		email: "",
+		phone: "",
+	});
+
+	const handleCallbackFormInputChange = (e) => {
+		const { name, value } = e.target;
+		setCallbackFormData({ ...callbackFormData, [name]: value });
+		console.log(callbackFormData);
+	};
 
 	const showNavBar = () => {
 		navRef.current.classList.toggle("responsive_nav");
 		setIsMenuOpen(!isMenuOpen);
+	};
+
+	const handleCallbackFormData = async (e) => {
+		e.preventDefault();
+
+		try {
+			const response = await fetch("http://localhost:8083/addCallback", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(callbackFormData),
+			});
+
+			if (response.ok) {
+				toast.success("Message sent successfully!");
+				setCallbackFormData({
+					name: "",
+					email: "",
+					phone: "",
+				});
+			} else {
+				const errorData = await response.json();
+				toast.error(errorData.error);
+			}
+		} catch (error) {
+			console.error("Error submitting form:", error);
+			toast.error("An error occurred while sending your message.");
+		}
 	};
 
 	return (
@@ -27,7 +68,7 @@ const Navbar = () => {
 			</div>
 
 			<header className="bg-white border-b-2 border-fatePrimary shadow-lg px-8">
-				<div className="flex items-center justify-between">
+				<div className="flex items-start justify-between">
 					<div className="flex items-center">
 						<div className="logo">
 							<Link to="/">
@@ -83,34 +124,24 @@ const Navbar = () => {
 									</button>
 								</div>
 								<div className="p-4 md:p-5">
-									<form className="space-y-4" action="#">
+									<form onSubmit={handleCallbackFormData} className="space-y-4">
 										<div>
 											<label htmlFor="stuname" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
 												Your name
 											</label>
-											<input type="text" name="stuname" id="stuname" className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:outline-none block w-full p-2.5 dark:bg-gray-300 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" placeholder="contact@fate.edu.np" required />
+											<input type="text" onChange={handleCallbackFormInputChange} name="name" value={callbackFormData.name} id="name" className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:outline-none block w-full p-2.5 dark:bg-gray-300 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" required />
 										</div>
 										<div>
 											<label htmlFor="stuemail" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
 												Your email
 											</label>
-											<input type="email" name="stuemail" id="stuemail" className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:outline-none block w-full p-2.5 dark:bg-gray-300 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" placeholder="contact@fate.edu.np" required />
+											<input type="email" onChange={handleCallbackFormInputChange} name="email" value={callbackFormData.email} id="email" className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:outline-none block w-full p-2.5 dark:bg-gray-300 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" required />
 										</div>
 										<div>
 											<label htmlFor="mobile" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">
 												Your mobile number
 											</label>
-											<input
-												type="number"
-												name="mobile"
-												id="mobile"
-												placeholder="98********"
-												onInput={(e) => {
-													e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0, 10);
-												}}
-												className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-2.5 dark:bg-gray-300 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
-												required
-											/>
+											<input type="number" name="phone" value={callbackFormData.phone} id="phone" onChange={handleCallbackFormInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-2.5 dark:bg-gray-300 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" required />
 										</div>
 
 										<PrimaryButton type="submit" className="w-full text-white bg-fatePrimary hover:bg-fatePrimary/90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">

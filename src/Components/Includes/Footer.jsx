@@ -3,35 +3,44 @@ import { Link } from "react-router-dom";
 import SocialMediaLinks from "./SocialMediaLinks";
 import PrimaryButton from "./PrimaryButton";
 import { ToastContainer, toast } from "react-toastify";
-import axios from "axios";
 import { useModal } from "./ModalContext";
 
 const Footer = () => {
-	const [subscriber, setSubscriber] = useState("");
+	const [email, setEmail] = useState("");
+	const [message, setMessage] = useState("");
+	const [isError, setIsError] = useState(false);
 	const { openModal, closeModal } = useModal();
 
-	const handleSubscriber = (e) => {
-		const currentSubscriber = e.target.value;
-		setSubscriber(currentSubscriber);
-	};
-
-	async function handleSubscriberSubmit(e) {
+	const handleSubscribe = async (e) => {
 		e.preventDefault();
-
-		const newSubscriber = {
-			email: subscriber,
-		};
-
 		try {
-			if (newSubscriber.email != "") {
-				toast.success("Thank you for Subscribing");
+			const response = await fetch("http://localhost:8083/addSubscriber", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ email }),
+			});
+
+			const data = await response.json();
+
+			if (response.ok) {
+				// Success response
+				setMessage(data.message);
+				setIsError(false);
+				toast.success(data.message);
+				setEmail(""); // Clear input field
 			} else {
-				toast.error("Please enter email address");
+				// Error response
+				setMessage(data.message);
+				toast.error(data.message);
+				setIsError(true);
 			}
 		} catch (error) {
-			console.error("Error saving subscriber:", error);
+			setMessage("An unexpected error occurred. Please try again.");
+			setIsError(true);
 		}
-	}
+	};
 
 	return (
 		<>
@@ -44,12 +53,12 @@ const Footer = () => {
 							Want us to email you with the <br /> latest admission offers?
 						</strong>
 
-						<form onSubmit={handleSubscriberSubmit} className="mt-6 w-[90%] mx-auto">
+						<form onSubmit={handleSubscribe} className="mt-6 w-[90%] mx-auto">
 							<div className="relative max-w-lg">
 								<label className="sr-only" htmlFor="email">
 									Email
 								</label>
-								<input className="w-full rounded-full border-gray-200 bg-gray-100 p-4 pe-32 text-md font-medium" id="email" type="email" value={subscriber} onChange={handleSubscriber} placeholder="hari_sanjel@gmail.com" />
+								<input className="w-full rounded-full border-gray-200 bg-gray-100 text-black p-4 pe-32 text-md font-medium" id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="hari_sanjel@gmail.com" />
 								<PrimaryButton type="submit" className="absolute end-2.5 top-1/2 -translate-y-1/2">
 									Subscribe
 								</PrimaryButton>{" "}
@@ -59,7 +68,7 @@ const Footer = () => {
 					</div>
 
 					<div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-32">
-						<div className="mx-auto max-w-sm lg:max-w-none">
+						<div className="flex  flex-col items-center mx-auto max-w-sm lg:max-w-none">
 							<p className="my-4 text-center  lg:text-left lg:text-lg">Fate International Japanese School Private Limited (FIJS) is the only institute which provides quality Japanese Language Teaching Facilities.</p>
 
 							<SocialMediaLinks />

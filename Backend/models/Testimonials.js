@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const TestimonialsSchema = new mongoose.Schema({
+const TestimonialsSchema = new Schema({
 	name: {
 		type: String,
 		required: true,
@@ -17,6 +17,6 @@ const TestimonialsSchema = new mongoose.Schema({
 	},
 });
 
-const TestimonialsModel = mongoose.model("Testimonials", TestimonialsSchema);
+const TestimonialsModel = model("Testimonials", TestimonialsSchema);
 
-module.exports = TestimonialsModel;
+export default TestimonialsModel;

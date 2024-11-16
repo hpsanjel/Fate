@@ -1,9 +1,6 @@
-// BlogPostPage.js
 import React from "react";
-import BlogPosts from "./MainBlogData";
 import { useParams } from "react-router-dom";
 import SectionHeader from "../../Includes/SectionHeader";
-import { slugify } from "../../Includes/Slugify";
 import BlogAside from "./BlogAside";
 
 import AsideBlogCard from "./AsideBlogCard";
@@ -11,18 +8,13 @@ import AsideBlogCard from "./AsideBlogCard";
 const BlogDetailPostPage = () => {
 	const { blogTitle } = useParams();
 
-	const blogPost = BlogPosts.find((blog) => slugify(blog.blogTitle) == blogTitle);
-	const filteredPosts = BlogPosts.filter((post) => post.blogTitle !== blogPost.blogTitle);
-
-	console.log(blogPost.blogDate);
-	if (!blogPost) {
-		return <div>Blog post not found!</div>;
-	}
+	// const blogPost = BlogPosts.find((blog) => slugify(blog.blogTitle) == blogTitle);
+	// const filteredPosts = BlogPosts.filter((post) => post.blogTitle !== blogPost.blogTitle);
 
 	return (
 		<>
 			<SectionHeader firstheading="Blog Posts" />
-			<div className=" grid grid-cols-3 mb-12">
+			{/* <div className=" grid grid-cols-3 mb-12">
 				<div id="main-blog-detail-page" className="text-white h-fit px-14 col-span-2 bg-fatePrimary">
 					<h1 className="text-3xl font-bold text-center mt-12">{blogPost.blogTitle}</h1>
 					<div className="flex justify-between my-12 bg-slate-100 px-8 py-2 text-fatePrimary rounded-md">
@@ -46,7 +38,7 @@ const BlogDetailPostPage = () => {
 						})}
 					</div>
 				</div>
-			</div>
+			</div> */}
 		</>
 	);
 };

@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const BlogsSchema = new mongoose.Schema({
+const BlogsSchema = new Schema({
 	date: {
 		type: String,
-		required: true,
+		required: false,
 	},
 
 	author: {
@@ -20,8 +20,12 @@ const BlogsSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	picture: {
+		type: String,
+		required: false,
+	},
 });
 
-const BlogsModel = mongoose.model("Blogs", BlogsSchema);
+const BlogsModel = model("Blogs", BlogsSchema);
 
-module.exports = BlogsModel;
+export default BlogsModel;

@@ -1,8 +1,6 @@
 import React from "react";
-import BlogPosts from "./MainBlogData";
 import { Link, useNavigate } from "react-router-dom";
 
-const blogPosts = BlogPosts;
 function BlogArchive({ blogPosts }) {
 	function groupPostsByMonth(blogPosts) {
 		const archive = {};
@@ -24,7 +22,6 @@ function BlogArchive({ blogPosts }) {
 
 		return archive;
 	}
-	const archive = groupPostsByMonth(BlogPosts);
 	const navigate = useNavigate();
 
 	return (
@@ -45,9 +42,6 @@ function BlogArchive({ blogPosts }) {
 									>
 										{month} ({archive[year][month].length})
 									</button>
-									{/* <Link to={`/articles/<span className="math-inline">\{year\}/</span>{month}`}>
-										{month} ({archive[year][month].length})
-									</Link> */}
 								</li>
 							))}
 						</ul>

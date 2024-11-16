@@ -37,7 +37,7 @@ const WhyJapan = () => {
 				{cards.map((card, index) => (
 					<div key={index} className={`items-center p-6 ${index % 3 === 0 ? "md:bg-fatePrimary/90 md:text-white" : ""} bg-white sm:text-inherit`}>
 						<div className="sm:col-span-5 md:col-span-1">
-							<img className="mx-auto mb-2 sm:mb-4 w-24" src={card.imageUrl} alt={card.title} />
+							<img className="mb-2 sm:mb-4 w-24 rounded-full" src={card.imageUrl} alt={card.title} />
 							<h3 className="text-lg font-bold">{card.title}</h3>
 						</div>
 						<p className="sm:col-span-7 md:col-span-1 py-2 leading-relaxed">{card.description}</p>

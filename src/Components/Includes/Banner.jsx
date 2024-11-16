@@ -1,5 +1,3 @@
-// Banner.js
-
 import React from "react";
 
 const Banner = ({ pageTitle, breadcrumbs, bgimage }) => {

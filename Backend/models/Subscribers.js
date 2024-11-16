@@ -1,12 +1,20 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const SubscriberSchema = new mongoose.Schema({
-	email: {
-		type: String,
-		required: true,
+const SubscriberSchema = new Schema(
+	{
+		email: {
+			type: String,
+			required: true,
+			unique: true,
+			trim: true,
+			lowercase: true,
+		},
 	},
-});
+	{
+		timestamps: true,
+	}
+);
 
-const SubscriberModel = mongoose.model("subscribers", SubscriberSchema);
+const SubscriberModel = model("subscribers", SubscriberSchema);
 
-module.exports = SubscriberModel;
+export default SubscriberModel;

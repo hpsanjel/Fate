@@ -34,6 +34,7 @@ import CallToAction2 from "./Components/Includes/CallToAction2";
 import GlobalStats from "./Components/Pages/GlobalStats";
 import CountryStats from "./Components/Pages/CountryStats";
 import LandingPage from "./Components/Pages/LandingPage";
+import { BlogPosts } from "./Components/Pages/Dashboard/Components/BlogPosts";
 function App() {
 	return (
 		<>
@@ -65,6 +66,7 @@ function App() {
 						<Route path="/language-classes" element={<LanguageClasses />}></Route>
 						<Route path="/career" element={<CareerPage />}></Route>
 						<Route path="/team" element={<Team />}></Route>
+						<Route path="/dashboard/blogposts" element={<BlogPosts />}></Route>
 						<Route path="*" element={<Error />}></Route>
 					</Routes>
 					<Footer />

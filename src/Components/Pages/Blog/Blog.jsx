@@ -1,120 +1,70 @@
 import React, { useState, useEffect } from "react";
 import Banner from "../../Includes/Banner";
 import BlogAside from "./BlogAside";
-import BlogPosts from "./MainBlogData";
 import { Link, useNavigate } from "react-router-dom";
 import { slugify } from "../../Includes/Slugify";
 import SectionHeader from "../../Includes/SectionHeader";
-import PrimaryButton from "../../Includes/PrimaryButton";
+import { toast } from "react-toastify";
 
 const Blog = () => {
-	// const [sortedPosts, setSortedPosts] = useState([]);
-	const [searchBlogsKey, setSearchBlogsKey] = useState("");
-	const [searchBlogsResults, setSearchBlogsResults] = useState([]);
-	const [noResultsFound, setNoResultsFound] = useState(false);
-	const [blog, setBlog] = useState({});
+	const [BlogPosts, setBlogPosts] = useState([]);
 
 	const navigate = useNavigate();
 
-	const howManyPosts = BlogPosts.slice(0, 6);
 	const pageTitle = "Blog";
 	const breadcrumbs = ["Home", "Blog"];
 	const bgimage = 'url("/images/headerbanner.png")';
 
-	// useEffect(() => {
-	// 	const sortedByDate = [...howManyPosts].sort((a, b) => new Date(b.blogDate) - new Date(a.blogDate));
-	// 	setSortedPosts(sortedByDate);
-	// }, []);
-
 	useEffect(() => {
-		const filteredPosts = howManyPosts.filter((post) => post.blogTitle.toLowerCase().includes(searchBlogsKey.toLowerCase()) || post.blogContent.toLowerCase().includes(searchBlogsKey.toLowerCase()));
-		setSearchBlogsResults(filteredPosts);
-		setNoResultsFound(filteredPosts.length === 0);
-	}, [searchBlogsKey]);
+		fetchBlogs();
+	}, []);
 
-	const handleInputChange = (event) => {
-		setSearchBlogsKey(event.target.value);
+	const fetchBlogs = async () => {
+		try {
+			const response = await fetch("http://localhost:8083/blogs");
+			const data = await response.json();
+			const sortedData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+			setBlogPosts(sortedData);
+		} catch (error) {
+			console.error("Error fetching blogs:", error);
+			toast.error("Error fetching blogs");
+		}
 	};
-
-	const highlightKeyword = (text, keyword) => {
-		if (!keyword.trim()) return text;
-
-		const regex = new RegExp(`(${keyword})`, "gi");
-		return text.replace(regex, "<mark>$1</mark>");
-	};
-
-	// const handleBlog = (e) => {
-	// 	setBlog({ ...blog, [e.target.name]: e.target.value });
-	// 	console.log(e.target.name, e.target.value);
-	// };
-
-	// const handleSubmitBlog = async (e) => {
-	// 	e.preventDefault();
-	// 	try {
-	// 		const response = await fetch("http://localhost:8083/addBlog", {
-	// 			method: "POST",
-	// 			body: JSON.stringify(blog),
-	// 			headers: { "Content-Type": "application/json" },
-	// 		});
-	// 		toast.success("Success", {
-	// 			position: toast.POSITION.TOP_RIGHT,
-	// 			autoClose: 2000,
-	// 		});
-	// 	} catch (error) {
-	// 		console.error("Error:", error);
-	// 	}
-	// 	console.log(blog);
-	// };
 
 	return (
 		<div className="container">
 			<Banner pageTitle={pageTitle} breadcrumbs={breadcrumbs} bgimage={bgimage} />
-			<SectionHeader firstline="Learn more about us" firstheading={pageTitle} shortdesc="Everything you may like to explore more about Japan and its best offers" />
-
-			<div className="w-2/3 md:w-1/2 mx-6 sm:mx-auto relative flex ">
-				<input type="text" className="w-full border-2 focus:outline-none border-black bg-white rounded-md my-6 p-4" placeholder="Search blogs..." onChange={handleInputChange}></input>
-				<i className="bi bi-search text-lg absolute top-10 right-4"></i>
-			</div>
-
-			{/* <form onSubmit={handleSubmitBlog} action="POST">
-				Date <input name="date" value={blog.date} onChange={handleBlog} type="date"></input>
-				Author <input name="author" value={blog.author} onChange={handleBlog} type="text"></input>
-				Title <input name="title" value={blog.title} onChange={handleBlog} type="text"></input>
-				Blog Post <br />
-				<textarea rows="10" name="blogpost" value={blog.blogpost} onChange={handleBlog} type="text"></textarea>
-				<button className="btn primary-btn">Save Blog</button>
-			</form> */}
-
-			{/* <div className="grid col-span-8 overflow-y-scroll no-scrollbar"> */}
-			{searchBlogsKey && <span className="text-sm text-green-700 -mt-10">{searchBlogsResults.length > 0 ? `${searchBlogsResults.length} relevant ${searchBlogsResults.length === 1 ? "blog" : "blogs"} found` : <h3 className="text-sm text-red-700">{noResultsFound ? `No results found for the term "${searchBlogsKey}".` : "Loading..."}</h3>}</span>}
+			<SectionHeader firstline="Explore about Japan" firstheading={pageTitle} shortdesc="You can expand horizon of your knowledge about Study, Job, Culture and many more" />
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-7 pb-12 px-8">
-				{!noResultsFound &&
-					searchBlogsResults.map((blog, index) => (
-						<div key={index} className="relative flex w-full flex-row rounded-lg bg-white bg-clip-border text-gray-700 shadow-md mr-8">
-							<div className="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
-								<img src={blog.imageSource} alt={blog.imageAlt} className="h-full w-full object-cover" />
+				{BlogPosts.length > 0 ? (
+					BlogPosts.map((blog, index) => (
+						<div key={index} className="relative flex w-full flex-col sm:flex-row rounded-lg bg-white bg-clip-border text-gray-700 shadow-md mr-8">
+							<div className="hidden sm:block relative m-0 h-full w-full sm:w-2/5 shrink-0 overflow-hidden sm:rounded-xl rounded-t-lg sm:rounded-r-none bg-white bg-clip-border text-gray-700">
+								<img src={blog.picture} alt={blog?.picture || "Blog image"} className="h-48 sm:h-full w-full object-cover" />
 							</div>
-							<div className="p-6">
-								<div className="flex justify-between mb-6 font-sans text-sm font-semibold leading-relaxed tracking-tight text-fatePrimary antialiased">
-									<div>
-										<i className="bi bi-pencil-square"></i> {blog.blogAuthor}
+							<div className="flex flex-col w-full justify-between p-6 bg-slate-50 m-0.5">
+								<div>
+									<h4 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">{blog.title}</h4>
+									<div className="flex justify-between mb-6 font-sans text-sm font-semibold leading-relaxed tracking-tight text-fatePrimary antialiased">
+										<div className="text-xs">
+											<i className="bi bi-pencil-square"></i> {blog.author}
+										</div>
+										<div className="text-xs">
+											<i className="bi bi-calendar3 mr-1"></i>
+											{blog.date}
+										</div>
 									</div>
-									<div>
-										<i className="bi bi-calendar3 mr-1"></i>
-										{blog.blogDate}
-									</div>
+									<p className="mb-2 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">{blog.blogpost}</p>
 								</div>
-								<h4 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased" dangerouslySetInnerHTML={{ __html: highlightKeyword(blog.blogTitle, searchBlogsKey) }}></h4>
-								<p className="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased" dangerouslySetInnerHTML={{ __html: highlightKeyword(blog.blogContent, searchBlogsKey) }}></p>
 								<a className="inline-block" href="#">
 									<button
 										onClick={() => {
-											navigate(`/blog/${slugify(blog.blogTitle)}`);
+											navigate(`/blog/${slugify(blog.title)}`);
 										}}
-										className="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-fatePrimary transition-all hover:bg-fatePrimary/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+										className="flex select-none items-center gap-2 rounded-lg py-1.5 sm:py-3 px-2 sm:px-6 text-center align-middle font-sans text-xs font-bold text-fatePrimary transition-all hover:bg-fatePrimary/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
 										type="button"
 									>
-										Learn More
+										Read More
 										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" aria-hidden="true" className="h-4 w-4">
 											<path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
 										</svg>
@@ -122,7 +72,16 @@ const Blog = () => {
 								</a>
 							</div>
 						</div>
-					))}
+					))
+				) : (
+					<div className="grid col-span-2 justify-center items-center w-full h-96">
+						<div className="flex flex-col gap-2 items-center justify-center">
+							<h1 className="text-6xl text-slate-400 font-bold text-center">Oh! So Sorry!</h1>
+							<h2 className="text-3xl text-slate-600 font-bold text-center">No blog posts found</h2>
+							<p className="text-lg text-center">Please check back later</p>
+						</div>
+					</div>
+				)}
 			</div>
 		</div>
 	);

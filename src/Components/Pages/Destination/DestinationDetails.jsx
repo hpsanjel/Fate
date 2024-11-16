@@ -46,9 +46,9 @@ const DestinationDetails = () => {
 
 			<div className="mx-auto flex flex-wrap justify-center items-center gap-6 p-20">
 				{filtereddestinations.map((uni, index) => (
-					<article key={index} className="flex flex-col justify-center items-center w-[250px] h-[250px] rounded-xl bg-white p-3 shadow-md">
+					<article key={index} className="flex flex-col w-[250px] h-[250px] rounded-xl bg-zinc-100 p-3 shadow-md">
 						<div className="hover:transform hover:scale-105 duration-300 flex flex-col justify-center items-center">
-							<img className="w-24 h-24 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm8xvmz9S59P65963htH2EuK08jPnQnEXxAtJ_cPTbJA&s" alt="Uni Logo" />
+							<img className="w-24 h-24 object-cover rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm8xvmz9S59P65963htH2EuK08jPnQnEXxAtJ_cPTbJA&s" alt="Uni Logo" />
 							<div className="p-2">
 								<h2 className="text-white-700 text-center h-12 my-3">{uni.University}</h2>
 								<Link to={uni.Website} className="flex space-x-2 justify-center rounded-lg text-fatePrimary px-4 py-1.5 my-2 bg-fatePrimary/10 hover:bg-fatePrimary hover:text-white">
