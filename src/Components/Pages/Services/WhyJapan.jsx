@@ -13,7 +13,7 @@ const WhyJapan = () => {
 		{
 			title: "Cultural Experiences",
 			imageUrl: "https://openclassrooms.com/modules/sdzv4-main/latest/images/online_study-011feaaa33df196e1ae0.svg",
-			description: "Japan offers a wealth of cultural experiences for visitors. Immerse yourself in the tranquility of a tea ceremony, or don a kimono and stroll through a picturesque garden. You can learn the art of flower arranging, watch a sumo wrestling match, or bathe in a soothing onsen hot spring. From attending vibrant festivals to appreciating ancient temples, Japan provides a unique chance to connect with its rich traditions. Enjoy every little bit here.",
+			description: "Japan offers a wealth of cultural experiences for visitors. Immerse yourself in the tranquility of a tea ceremony, or don a kimono and stroll through a picturesque garden. You can learn the art of flower arranging or bathe in a soothing onsen hot spring. From attending vibrant festivals to appreciating ancient temples, Japan provides a unique chance to connect with its rich traditions. Enjoy every little bit here.",
 			link: "/landscape-page",
 		},
 		{

@@ -36,12 +36,12 @@ const Destination = () => {
 					return (
 						<div key={id} className="my-4 bg-white rounded-lg shadow-md flex flex-col md:flex-row space-x-4">
 							<div className="relative">
-								<h3 className="absolute top-1 right-0 bg-fatePrimary text-white px-2 rounded-l-md text-md my-2 text-center">{dest.region}</h3>
+								<h3 className="absolute top-1 left-0 z-50 bg-fatePrimary text-white px-2 rounded-r-md text-md my-2 text-center">{dest.region}</h3>
 								<img className=" md:grayscale-[40%] w-full h-120 md:hover:grayscale-0 md:hover:scale-[1..5] md:transition md:ease-in-out md:delay-150 rounded-t-md " src={dest.region_img} alt={dest.region} />
 
 								<p className="text-sm leading-5 px-4 my-4 line-clamp-3">{dest.region_desc}</p>
 
-								<Link to={`../destination-detail/${dest.region}`} className="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-fatePrimary transition-all hover:bg-fatePrimary/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+								<Link to={`../destination-detail/${dest.region}`} className="flex select-none items-center gap-2 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-fatePrimary transition-all hover:bg-fatePrimary/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none hover:rounded-b-lg">
 									{`Universities in ${dest.region}`}
 									<bi className="bi bi-arrow-right text-lg pl-1 group-hover:pl-2"></bi>
 								</Link>
