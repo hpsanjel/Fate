@@ -7,7 +7,7 @@ const Testimony = () => {
 		e.preventDefault();
 		setTestimony({ ...testimony, [e.target.name]: e.target.value });
 		try {
-			const response = await fetch("http://localhost:8083/addTestimonial", {
+			const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/addTestimonial`, {
 				method: "POST",
 				body: JSON.stringify(testimony),
 				headers: { "Content-Type": "application/json" },

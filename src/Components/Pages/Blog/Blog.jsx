@@ -4,7 +4,6 @@ import BlogAside from "./BlogAside";
 import { Link, useNavigate } from "react-router-dom";
 import { slugify } from "../../Includes/Slugify";
 import SectionHeader from "../../Includes/SectionHeader";
-import { toast } from "react-toastify";
 
 const Blog = () => {
 	const [BlogPosts, setBlogPosts] = useState([]);
@@ -19,7 +18,7 @@ const Blog = () => {
 		// Fetch blogs when the component mounts
 		const fetchBlogs = async () => {
 			try {
-				const response = await fetch("http://localhost:8083/blogs");
+				const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`);
 
 				// Handle non-OK responses
 				if (!response.ok) {

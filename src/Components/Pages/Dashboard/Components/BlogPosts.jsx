@@ -23,7 +23,7 @@ export const BlogPosts = () => {
 		}
 
 		try {
-			const response = await fetch("http://localhost:8083/addBlog", {
+			const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/addBlogs`, {
 				method: "POST",
 				body: formData, // Send FormData
 			});

@@ -30,7 +30,7 @@ const Navbar = () => {
 		e.preventDefault();
 
 		try {
-			const response = await fetch("http://localhost:8083/addCallback", {
+			const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/addCallback`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

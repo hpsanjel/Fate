@@ -62,7 +62,6 @@ app.get("/blogs", async (req, res) => {
 	try {
 		// Fetch all blogs from the database
 		const blogs = await BlogsModel.find();
-		console.log(blogs);
 		// Check if blogs exist
 		if (!blogs.length) {
 			return res.status(404).json({ message: "No blogs found" });
