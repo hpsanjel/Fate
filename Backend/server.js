@@ -57,13 +57,25 @@ app.get("/getTestimonials", async (req, res) => {
 	res.json(testi);
 });
 
+// Route to get all blogs
 app.get("/blogs", async (req, res) => {
 	try {
+		// Fetch all blogs from the database
 		const blogs = await BlogsModel.find();
+		console.log(blogs);
+		// Check if blogs exist
+		if (!blogs.length) {
+			return res.status(404).json({ message: "No blogs found" });
+		}
+
+		// Respond with the list of blogs
 		res.status(200).json(blogs);
 	} catch (error) {
-		console.error("Error fetching blogs:", error);
-		res.status(500).json({ message: "Internal server error" });
+		// Log the error for debugging
+		console.error("Error fetching blogs:", error.message);
+
+		// Send an internal server error response
+		res.status(500).json({ message: "Something went wrong. Please try again later." });
 	}
 });
 

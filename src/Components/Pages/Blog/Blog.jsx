@@ -16,20 +16,30 @@ const Blog = () => {
 	const bgimage = 'url("/images/headerbanner.png")';
 
 	useEffect(() => {
-		fetchBlogs();
-	}, []);
+		// Fetch blogs when the component mounts
+		const fetchBlogs = async () => {
+			try {
+				const response = await fetch("http://localhost:8083/blogs");
 
-	const fetchBlogs = async () => {
-		try {
-			const response = await fetch("http://localhost:8083/blogs");
-			const data = await response.json();
-			const sortedData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
-			setBlogPosts(sortedData);
-		} catch (error) {
-			console.error("Error fetching blogs:", error);
-			toast.error("Error fetching blogs");
-		}
-	};
+				// Handle non-OK responses
+				if (!response.ok) {
+					throw new Error(`Failed to fetch blogs: ${response.status} ${response.statusText}`);
+				}
+
+				const data = await response.json();
+
+				// Sort blogs by date (newest first)
+				const sortedData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+				setBlogPosts(sortedData); // Update state with sorted blogs
+			} catch (error) {
+				console.error("Error fetching blogs:", error.message);
+				// toast.error("Error fetching blogs. Please try again.");
+			}
+		};
+
+		fetchBlogs();
+	}, []); // Empty dependency array ensures it runs only once
 
 	return (
 		<div className="container">
