@@ -7,6 +7,8 @@ import SectionHeader from "../../Includes/SectionHeader";
 
 const Blog = () => {
 	const [BlogPosts, setBlogPosts] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState(null);
 
 	const navigate = useNavigate();
 
@@ -15,37 +17,60 @@ const Blog = () => {
 	const bgimage = 'url("/images/headerbanner.png")';
 
 	useEffect(() => {
-		// Fetch blogs when the component mounts
 		const fetchBlogs = async () => {
 			try {
-				const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`);
+				setIsLoading(true);
+				setError(null);
 
-				// Handle non-OK responses
+				console.log("Fetching from:", `${import.meta.env.VITE_APP_API_URL}/blogs`);
+
+				const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/blogs`);
+
 				if (!response.ok) {
 					throw new Error(`Failed to fetch blogs: ${response.status} ${response.statusText}`);
 				}
 
 				const data = await response.json();
+				console.log("Received data:", data);
 
-				// Sort blogs by date (newest first)
 				const sortedData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-				setBlogPosts(sortedData); // Update state with sorted blogs
+				setBlogPosts(sortedData);
 			} catch (error) {
-				console.error("Error fetching blogs:", error.message);
-				// toast.error("Error fetching blogs. Please try again.");
+				console.error("Error details:", {
+					message: error.message,
+					stack: error.stack,
+				});
+				setError(error.message);
+			} finally {
+				setIsLoading(false);
 			}
 		};
 
 		fetchBlogs();
-	}, []); // Empty dependency array ensures it runs only once
+	}, []);
 
 	return (
 		<div className="container">
 			<Banner pageTitle={pageTitle} breadcrumbs={breadcrumbs} bgimage={bgimage} />
 			<SectionHeader firstline="Explore about Japan" firstheading={pageTitle} shortdesc="You can expand horizon of your knowledge about Study, Job, Culture and many more" />
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-7 pb-12 px-8">
-				{BlogPosts.length > 0 ? (
+				{isLoading ? (
+					<div className="grid col-span-2 justify-center items-center w-full h-96">
+						<div className="flex flex-col gap-2 items-center justify-center">
+							<h1 className="text-6xl text-slate-400 font-bold text-center">Loading...</h1>
+							<h2 className="text-3xl text-slate-600 font-bold text-center">Please wait</h2>
+							<p className="text-lg text-center">We're fetching the latest blog posts for you</p>
+						</div>
+					</div>
+				) : error ? (
+					<div className="grid col-span-2 justify-center items-center w-full h-96">
+						<div className="flex flex-col gap-2 items-center justify-center">
+							<h1 className="text-6xl text-slate-400 font-bold text-center">Oh! So Sorry!</h1>
+							<h2 className="text-3xl text-slate-600 font-bold text-center">An error occurred</h2>
+							<p className="text-lg text-center">{error}</p>
+						</div>
+					</div>
+				) : BlogPosts.length > 0 ? (
 					BlogPosts.map((blog, index) => (
 						<div key={index} className="relative flex w-full flex-col sm:flex-row rounded-lg bg-white bg-clip-border text-gray-700 shadow-md mr-8">
 							<div className="hidden sm:block relative m-0 h-full w-full sm:w-2/5 shrink-0 overflow-hidden sm:rounded-xl rounded-t-lg sm:rounded-r-none bg-white bg-clip-border text-gray-700">

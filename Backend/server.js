@@ -24,7 +24,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use(cors());
+app.use(
+	cors({
+		origin: "http://localhost:5173", // Your frontend URL
+		credentials: true,
+	})
+);
 connectToDB();
 
 const uploadsDir = path.join(__dirname, "../public/uploads");
