@@ -24,16 +24,10 @@ import DestinationDetails from "./Components/Pages/Destination/DestinationDetail
 import FAQs from "./Components/Includes/FAQs";
 import LanguageClasses from "./Components/Pages/Services/LanguageClasses";
 import { ModalProvider } from "./Components/Includes/ModalContext";
-import WhoAreWe from "./Components/Pages/Services/WhoAreWe";
-import { Description } from "@mui/icons-material";
+
 import Team from "./Components/Pages/Team";
 import CareerPage from "./Components/Pages/CareerPage";
-import VoiceOfMD from "./Components/Pages/VoiceOfMD";
-import SlidingUniversities from "./Components/Includes/SlidingUniversities";
-import CallToAction2 from "./Components/Includes/CallToAction2";
-import GlobalStats from "./Components/Pages/GlobalStats";
-import CountryStats from "./Components/Pages/CountryStats";
-import LandingPage from "./Components/Pages/LandingPage";
+
 import { BlogPosts } from "./Components/Pages/Dashboard/Components/BlogPosts";
 function App() {
 	return (
@@ -41,12 +35,7 @@ function App() {
 			<Router>
 				<ModalProvider>
 					<Navbar />
-					{/* <LandingPage /> */}
-					{/* <GlobalStats />
-					<CountryStats /> */}
-					{/* <VoiceOfMD />
-					<CareerPage /> */}
-					{/* <WhoAreWe /> */}
+
 					<Routes>
 						<Route exact path="/" element={<CallToAction />}></Route>
 						<Route path="/about" element={<About />}></Route>

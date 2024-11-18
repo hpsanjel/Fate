@@ -57,6 +57,11 @@ export default function Page() {
 							<JobCard title="Chef" company="Nepali Restaurant" location="Bergen" />
 							<JobCard title="Nurse" company="City Hospital" location="Trondheim" />
 						</div>
+						<div className="flex justify-center mt-8">
+							<Button asChild>
+								<a href="/jobs">View All Jobs</a>
+							</Button>
+						</div>
 					</div>
 				</section>
 
