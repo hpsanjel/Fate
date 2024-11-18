@@ -11,7 +11,7 @@ const Error404 = () => {
 	useEffect(() => {
 		const fetchData = () => {
 			axios
-				.get(`${process.env.NEXT_PUBLIC_API_URL}/getBlogs`)
+				.get(`${process.env.VITE_APP_API_URL}/getBlogs`)
 				.then((response) => {
 					setData(response.data);
 				})

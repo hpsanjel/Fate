@@ -23,7 +23,7 @@ export const BlogPosts = () => {
 		}
 
 		try {
-			const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/addBlogs`, {
+			const response = await fetch(`${process.env.VITE_APP_API_URL}/addBlogs`, {
 				method: "POST",
 				body: formData, // Send FormData
 			});

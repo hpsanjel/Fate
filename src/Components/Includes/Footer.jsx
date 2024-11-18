@@ -14,7 +14,7 @@ const Footer = () => {
 	const handleSubscribe = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/addSubscriber`, {
+			const response = await fetch(`${process.env.VITE_APP_API_URL}/addSubscriber`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
