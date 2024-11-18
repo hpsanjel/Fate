@@ -15,11 +15,11 @@ const HeroSection = () => {
 				<img src="/images/slide5 Large.jpeg" alt="Hero Image" className="absolute inset-0 w-full h-full object-cover backdrop-blur-xl" />
 				<div className="absolute inset-0 bg-green-900 opacity-30"></div>
 
-				<div className="max-w-2xl w-fit mx-auto p-8 text-center relative">
-					<h1 className="font-bold tracking-tight">
-						<span className=" text-white text-4xl md:text-5xl">Study and Work in JAPAN</span>
+				<div className="max-w-2xl lg:max-w-4xl w-fit mx-auto p-8 text-center relative">
+					<h1 className="font-serif font-medium tracking-tight">
+						<span className=" text-white text-4xl md:text-5xl lg:text-6xl">Study and Work in JAPAN</span>
 					</h1>
-					<p className="mt-6 text-md md:text-md text-slate-100">Unlock world-class education and endless opportunities with our expert guidance. With our service, you can easily fulfil your dream.</p>
+					<p className="mt-6 font-semibold text-md md:text-lg lg:text-xl text-slate-100">Unlock world-class education and endless opportunities with our expert guidance. With our service, you can easily fulfil your dream.</p>
 					<div>
 						<PrimaryButton type="submit" onClick={() => navigate(`/Contact`)} className="mt-8 mr-4 mb-2">
 							Book Consultation
