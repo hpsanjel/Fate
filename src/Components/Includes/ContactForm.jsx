@@ -144,10 +144,10 @@ const ContactPage = () => {
 								<label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
 									Message
 								</label>
-								<textarea id="message" name="message" rows="5" value={contactFormData.message} onChange={handleFormInputChange} className={`w-full px-3 py-2 border rounded-md ${errors.message ? "border-red-500" : "border-gray-300"} focus:outline-none focus:ring-2 focus:ring-blue-500`} placeholder="Your Message"></textarea>
+								<textarea id="message" name="message" rows="5" value={contactFormData.message} onChange={handleFormInputChange} className={`w-full md:h-48 px-3 py-2 border rounded-md ${errors.message ? "border-red-500" : "border-gray-300"} focus:outline-none focus:ring-2 focus:ring-blue-500`} placeholder="Your Message"></textarea>
 								{errors.message && <p className="mt-1 text-sm text-red-500">{errors.message}</p>}
 							</div>
-							<button type="submit" className="w-full bg-fatePrimary text-white px-4 py-2 rounded-md font-semibold hover:bg-fatePrimary/80 transition-colors duration-300">
+							<button type="submit" className="w-fit bg-fatePrimary text-white px-4 py-2 rounded-md font-semibold hover:bg-fatePrimary/80 transition-colors duration-300">
 								Send Message
 							</button>
 						</form>

@@ -67,8 +67,8 @@ const Navbar = () => {
 				<SocialMediaLinks />
 			</div>
 
-			<header className="bg-white border-b-2 border-fatePrimary shadow-lg px-8">
-				<div className="flex items-start justify-between">
+			<header className="bg-white h-max py-6  border-b-2 border-fatePrimary shadow-lg px-8">
+				<div className="flex items-center justify-between">
 					<div className="flex items-center">
 						<div className="logo">
 							<Link to="/">
@@ -85,6 +85,9 @@ const Navbar = () => {
 							<NavLink className="text-black hover:text-fatePrimary" to="/destination" onClick={showNavBar}>
 								Destination
 							</NavLink>
+							<NavLink className="text-black hover:text-fatePrimary" to="/language-classes" onClick={showNavBar}>
+								Language Classes
+							</NavLink>
 							<NavLink className="text-black hover:text-fatePrimary" to="/blog" onClick={showNavBar}>
 								Blog
 							</NavLink>
@@ -98,11 +101,11 @@ const Navbar = () => {
 						</button> */}
 						</nav>
 					</div>
-					<div className="hidden sm:block">
+					<div className="hidden md:block">
 						<PrimaryButton onClick={openModal}>Request Callback</PrimaryButton>
 					</div>
 
-					<button className="nav_btn absolute top-2 right-2" onClick={showNavBar}>
+					<button className="nav_btn absolute top-16 right-6" onClick={showNavBar}>
 						{isMenuOpen ? <i className="bi bi-x"></i> : <i className="bi bi-list"></i>}
 					</button>
 				</div>

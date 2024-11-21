@@ -23,12 +23,14 @@ import BlogDetailPostPage from "./Components/Pages/Blog/BlogDetailPostPage";
 import DestinationDetails from "./Components/Pages/Destination/DestinationDetails";
 import FAQs from "./Components/Includes/FAQs";
 import LanguageClasses from "./Components/Pages/Services/LanguageClasses";
+import StudentVisa from "./Components/Includes/StudentVisa";
 import { ModalProvider } from "./Components/Includes/ModalContext";
 
-import Team from "./Components/Pages/Team";
+import TeamGrid from "./Components/Pages/TeamGrid";
 import CareerPage from "./Components/Pages/CareerPage";
 
 import { BlogPosts } from "./Components/Pages/Dashboard/Components/BlogPosts";
+import BackToTopButton from "./Components/BackToTopButton";
 function App() {
 	return (
 		<>
@@ -45,6 +47,7 @@ function App() {
 						<Route path="/gallery" element={<Gallery />}></Route>
 						<Route path="/testimonial" element={<Testimonial />}></Route>
 						<Route path="/destination" element={<Destination />}></Route>
+						<Route path="/student-visa" element={<StudentVisa />}></Route>
 						<Route path="/destination-detail/:region" element={<DestinationDetails />}></Route>
 						<Route path="/destination-detail/" element={<DestinationDetails />}></Route>
 						<Route path="/signup" element={<SignUp />}></Route>
@@ -54,11 +57,12 @@ function App() {
 						<Route path="/faqs" element={<FAQs />}></Route>
 						<Route path="/language-classes" element={<LanguageClasses />}></Route>
 						<Route path="/career" element={<CareerPage />}></Route>
-						<Route path="/team" element={<Team />}></Route>
+						<Route path="/team" element={<TeamGrid />}></Route>
 						<Route path="/dashboard/blogposts" element={<BlogPosts />}></Route>
 						<Route path="*" element={<Error />}></Route>
 					</Routes>
 					<Footer />
+					<BackToTopButton />
 				</ModalProvider>
 			</Router>
 		</>

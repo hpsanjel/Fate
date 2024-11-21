@@ -25,13 +25,12 @@ const InteractiveMap = ({ apiKey }) => {
 
 	return isLoaded ? (
 		<div className="w-full max-w-4xl mx-auto p-4">
-			<h2 className="text-2xl font-bold mb-4 text-center text-gray-800">Our Location</h2>
+			<h2 className="text-2xl font-bold mb-4 text-center text-gray-800">Meet Us</h2>
 			<div className="rounded-lg overflow-hidden shadow-lg">
 				<GoogleMap mapContainerStyle={containerStyle} center={center} zoom={16} onUnmount={onUnmount}>
 					<Marker position={center} />
 				</GoogleMap>
 			</div>
-			<p className="mt-4 text-center text-gray-600">Visit us at our Kathmandu office!</p>
 		</div>
 	) : (
 		<div className="w-full h-96 flex items-center justify-center bg-gray-100 rounded-lg">
