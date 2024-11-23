@@ -17,7 +17,7 @@ const SlidingUniversities = () => {
 			<h2 className="text-4xl font-bold text-center mb-6 text-fatePrimary">Featured Universities</h2>
 			<div className="relative overflow-hidden" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
 				<motion.div
-					className="flex space-x-12"
+					className="flex space-x-4"
 					animate={{
 						x: isHovered ? ["0%", "-50%"] : ["0%", "-50%"],
 					}}
@@ -31,10 +31,12 @@ const SlidingUniversities = () => {
 					}}
 				>
 					{universities.map((university) => (
-						<a key={`${university.id}-${university.University}`} href={university.Website} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center w-96 h-42 p-4 rounded-lg transition-all duration-300 hover:scale-105 group">
-							<img src="/images/objective.png" alt={`${university.University} Logo`} className="w-20 h-20 object-cover rounded-full mb-4 group-hover:scale-110 transition-transform duration-300" />
-							<p className="text-sm font-medium text-center px-2 text-slate-600 group-hover:font-md group-hover:text-fatePrimary transition-colors duration-300">{university.University}</p>
-						</a>
+						<div key={`${university.id}-${university.University}`} className="w-[200px] p-4 flex-shrink-0 hover:bg-fatePrimary/10 hover:rounded-lg">
+							<a href={university.Website} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center w-full h-42 p-2 rounded-lg ">
+								<img src={university.region_img} alt={`${university.University} Logo`} className="w-12 h-12 object-cover rounded-full mb-4 " />
+								<p className="text-sm font-medium text-center px-2 text-slate-600 ">{university.University}</p>
+							</a>
+						</div>
 					))}
 				</motion.div>
 			</div>
