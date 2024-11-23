@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Banner from "../../Includes/Banner";
-import BlogAside from "./BlogAside";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { slugify } from "../../Includes/Slugify";
 import SectionHeader from "../../Includes/SectionHeader";
+import { blogposts as BlogPosts } from "./fate.blogs";
 
 const Blog = () => {
-	const [BlogPosts, setBlogPosts] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+	// const [BlogPosts, setBlogPosts] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
 
 	const navigate = useNavigate();
@@ -16,38 +16,38 @@ const Blog = () => {
 	const breadcrumbs = ["Home", "Blog"];
 	const bgimage = 'url("/images/headerbanner.png")';
 
-	useEffect(() => {
-		const fetchBlogs = async () => {
-			try {
-				setIsLoading(true);
-				setError(null);
+	// useEffect(() => {
+	// 	const fetchBlogs = async () => {
+	// 		try {
+	// 			setIsLoading(true);
+	// 			setError(null);
 
-				console.log("Fetching from:", `${import.meta.env.VITE_APP_API_URL}/blogs`);
+	// 			console.log("Fetching from:", `${import.meta.env.VITE_APP_API_URL}/blogs`);
 
-				const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/blogs`);
+	// 			const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/blogs`);
 
-				if (!response.ok) {
-					throw new Error(`Failed to fetch blogs: ${response.status} ${response.statusText}`);
-				}
+	// 			if (!response.ok) {
+	// 				throw new Error(`Failed to fetch blogs: ${response.status} ${response.statusText}`);
+	// 			}
 
-				const data = await response.json();
-				console.log("Received data:", data);
+	// 			const data = await response.json();
+	// 			console.log("Received data:", data);
 
-				const sortedData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
-				setBlogPosts(sortedData);
-			} catch (error) {
-				console.error("Error details:", {
-					message: error.message,
-					stack: error.stack,
-				});
-				setError(error.message);
-			} finally {
-				setIsLoading(false);
-			}
-		};
+	// 			const sortedData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+	// 			setBlogPosts(sortedData);
+	// 		} catch (error) {
+	// 			console.error("Error details:", {
+	// 				message: error.message,
+	// 				stack: error.stack,
+	// 			});
+	// 			setError(error.message);
+	// 		} finally {
+	// 			setIsLoading(false);
+	// 		}
+	// 	};
 
-		fetchBlogs();
-	}, []);
+	// 	fetchBlogs();
+	// }, []);
 
 	return (
 		<div className="container">
