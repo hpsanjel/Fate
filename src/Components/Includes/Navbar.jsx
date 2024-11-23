@@ -105,7 +105,7 @@ const Navbar = () => {
 						<PrimaryButton onClick={openModal}>Request Callback</PrimaryButton>
 					</div>
 
-					<button className="nav_btn absolute top-16 right-6" onClick={showNavBar}>
+					<button className="nav_btn absolute md:top-16 right-6" onClick={showNavBar}>
 						{isMenuOpen ? <i className="bi bi-x"></i> : <i className="bi bi-list"></i>}
 					</button>
 				</div>
