@@ -141,11 +141,7 @@ const LanguageclassNamees = () => {
 
 				<div className="private mb-16">
 					<h1 className="text-3xl text-fatePrimary mb-8">Language Approach and Processing</h1>
-					<div className="relative overflow-hidden bg-gradient-to-br from-fatePrimary/20 to-blue-50 p-8 rounded-3xl">
-						{/* Decorative background elements */}
-						<div className="absolute top-0 right-0 w-64 h-64 bg-red-100 rounded-full blur-3xl opacity-20 -mr-32 -mt-32" />
-						<div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-20 -ml-32 -mb-32" />
-
+					<div className="relative overflow-hidden bg-gradient-to-br from-fatePrimary/10 to-blue-50 p-8 rounded-3xl">
 						<div className="grid gap-8 lg:gap-12 grid-cols-1 lg:grid-cols-2 items-center relative">
 							{/* Left column with Japanese writing info */}
 							<div className="space-y-6">
@@ -181,8 +177,8 @@ const LanguageclassNamees = () => {
 
 										<div className="grid gap-4">
 											{attendees.map((item, index) => (
-												<div key={index} className="group bg-gradient-to-r from-fateSecondaryLight/50 to-fatePrimary/20 p-4 rounded-xl transition-all duration-300 hover:shadow-md hover:scale-102 flex items-start gap-4">
-													<div className="bg-white p-2 rounded-lg shadow-sm text-blue-500 group-hover:text-red-500 transition-colors">{item.icon}</div>
+												<div key={index} className="group bg-gradient-to-r from-fateSecondaryLight/20 to-fatePrimary/5 p-4 rounded-xl transition-all duration-300 hover:shadow-md hover:scale-102 flex items-start gap-4">
+													<div className="bg-white p-2 rounded-lg shadow-sm text-fatePrimary group-hover:text-fatePrimary/70 transition-colors">{item.icon}</div>
 													<p className="text-gray-700 flex-1">{item.text}</p>
 												</div>
 											))}
@@ -194,19 +190,15 @@ const LanguageclassNamees = () => {
 					</div>
 				</div>
 
-				<div className="relative w-full overflow-hidden bg-gradient-to-br from-indigo-50 to-rose-50 p-8 rounded-3xl">
-					{/* Decorative elements */}
-					<div className="absolute top-0 left-1/4 w-72 h-72 bg-red-100 rounded-full blur-3xl opacity-20" />
-					<div className="absolute bottom-0 right-1/4 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-20" />
-
+				<div className="relative w-full overflow-hidden bg-gradient-to-br from-fatePrimary/10 to-fateSecondaryDark/10 p-8 mb-12 rounded-3xl">
 					<div className="relative grid gap-8 lg:gap-16 grid-cols-1 lg:grid-cols-2">
 						{/* Achievement Section */}
 						<div className="group relative">
-							<div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 rounded-3xl transform -rotate-2 opacity-10 group-hover:rotate-0 transition-transform duration-300" />
+							<div className="absolute inset-0 bg-gradient-to-r from-fateSecondaryDark to-fatePrimary rounded-3xl transform -rotate-2 opacity-10 group-hover:rotate-0 transition-transform duration-300" />
 							<Card className="relative bg-white/80 backdrop-blur-sm overflow-hidden border-none shadow-xl">
 								<CardContent className="p-8">
 									<div className="flex items-center gap-3 mb-6">
-										<Target className="w-8 h-8 text-red-500" />
+										<Target className="w-8 h-8 text-fatePrimary" />
 										<h2 className="text-3xl font-bold text-gray-800">Achievement</h2>
 									</div>
 
@@ -214,8 +206,8 @@ const LanguageclassNamees = () => {
 
 									<div className="space-y-4">
 										{achievements.map((item, index) => (
-											<div key={index} className="flex items-center gap-4 p-4 bg-gradient-to-r from-red-50 to-rose-50 rounded-xl transform hover:scale-102 transition-all duration-300">
-												<div className="bg-white p-2 rounded-lg shadow-sm text-red-500">{item.icon}</div>
+											<div key={index} className="flex items-center gap-4 p-4 bg-gradient-to-r from-fatePrimary/10 to-slate-100 rounded-xl transform hover:scale-102 transition-all duration-300">
+												<div className="bg-white p-2 rounded-lg shadow-sm text-fatePrimary">{item.icon}</div>
 												<p className="text-gray-700">{item.text}</p>
 											</div>
 										))}
@@ -226,11 +218,11 @@ const LanguageclassNamees = () => {
 
 						{/* Environment Section */}
 						<div className="group relative">
-							<div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-3xl transform rotate-2 opacity-10 group-hover:rotate-0 transition-transform duration-300" />
+							<div className="absolute inset-0 bg-gradient-to-r from-fateSecondaryDark to-fatePrimary rounded-3xl transform rotate-2 opacity-10 group-hover:rotate-0 transition-transform duration-300" />
 							<Card className="relative bg-white/80 backdrop-blur-sm overflow-hidden border-none shadow-xl">
 								<CardContent className="p-8">
 									<div className="flex items-center gap-3 mb-6">
-										<School className="w-8 h-8 text-blue-500" />
+										<School className="w-8 h-8 text-fateSecondaryDark" />
 										<h2 className="text-3xl font-bold text-gray-800">Environment</h2>
 									</div>
 
@@ -238,8 +230,8 @@ const LanguageclassNamees = () => {
 
 									<div className="space-y-4">
 										{environment.map((item, index) => (
-											<div key={index} className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl transform hover:scale-102 transition-all duration-300">
-												<div className="bg-white p-2 rounded-lg shadow-sm text-blue-500">{item.icon}</div>
+											<div key={index} className="flex items-center gap-4 p-4 bg-gradient-to-r from-fateSecondaryLight/30 to-slate-100 rounded-xl transform hover:scale-102 transition-all duration-300">
+												<div className="bg-white p-2 rounded-lg shadow-sm  text-fateSecondaryDark">{item.icon}</div>
 												<p className="text-gray-700">{item.text}</p>
 											</div>
 										))}
