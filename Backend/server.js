@@ -13,6 +13,7 @@ import multer from "multer";
 import path from "path"; // Add this line
 import { fileURLToPath } from "url"; // For handling ES Modules
 import fs from "fs"; // File system module to check and create directories
+import { all } from "axios";
 
 // For ES Modules: Resolve __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -24,10 +25,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(bodyParser.json());
 
+const allowedOrigins = ["https://fateedu.vercel.app", "http://localhost:5173"];
+
 app.use(
 	cors({
-		origin: "http://localhost:5173", // Your frontend URL
-		credentials: true,
+		origin: allowedOrigins,
 	})
 );
 connectToDB();
