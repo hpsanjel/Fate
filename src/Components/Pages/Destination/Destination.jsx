@@ -37,7 +37,7 @@ const Destination = () => {
 						<div key={id} className="my-4 bg-white rounded-lg shadow-md flex flex-col md:flex-row space-x-4">
 							<div className="relative">
 								<h3 className="absolute top-1 left-0 z-50 bg-fatePrimary text-white px-2 rounded-r-md text-md my-2 text-center">{dest.region}</h3>
-								<img className=" md:grayscale-[40%] w-full h-120 md:hover:grayscale-0 md:hover:scale-[1..5] md:transition md:ease-in-out md:delay-150 rounded-t-md " src={dest.region_img} alt={dest.region} />
+								<img className=" md:grayscale-[40%] w-full h-120 md:hover:grayscale-0  md:transition md:ease-in-out md:delay-150 rounded-t-md " src={dest.region_img} alt={dest.region} />
 
 								<p className="text-sm leading-5 px-4 my-4 line-clamp-3">{dest.region_desc}</p>
 
