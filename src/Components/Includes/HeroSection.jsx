@@ -19,7 +19,7 @@ const HeroSection = () => {
 					<h1 className="font-serif tracking-tight">
 						<span className=" text-white text-4xl md:text-5xl lg:text-6xl">Study and Work in JAPAN</span>
 					</h1>
-					<p className="mt-6 font-bold text-md md:text-lg lg:text-xl text-fateSecondaryLight">Unlock world-class education and endless opportunities with our expert guidance. With our service, you can easily fulfil your dream.</p>
+					<p className="mt-6 text-md md:text-lg lg:text-xl text-white">Unlock world-class education and endless opportunities with our expert guidance. With our service, you can easily fulfil your dream.</p>
 					<div>
 						<PrimaryButton type="submit" onClick={() => navigate(`/Contact`)} className="mt-8 mr-4 mb-2">
 							Book Consultation
